@@ -236,7 +236,7 @@ article img {
     @apply text-[1.6rem] text-heading2 mt-12;
 
     &::before {
-      @apply mr-2 content-['##'];
+      @apply mr-2 content-['#'];
     }
 
     .heading-anchor svg {
@@ -248,7 +248,7 @@ article img {
     @apply text-2xl text-heading3 mt-10;
 
     &::before {
-      @apply mr-2 content-['###'];
+      @apply mr-2 content-['#'];
     }
 
     .heading-anchor svg {
@@ -260,7 +260,7 @@ article img {
     @apply text-2xl text-heading4 mt-8;
 
     &::before {
-      @apply mr-2 content-['####'];
+      @apply mr-2 content-['#'];
     }
 
     .heading-anchor svg {
@@ -272,7 +272,7 @@ article img {
     @apply text-lg text-heading5;
 
     &::before {
-      @apply mr-2 content-['#####'];
+      @apply mr-2 content-['#'];
     }
 
     .heading-anchor svg {
@@ -284,7 +284,7 @@ article img {
     @apply text-lg text-heading6;
 
     &::before {
-      @apply mr-2 content-['######'];
+      @apply mr-2 content-['#'];
     }
 
     .heading-anchor svg {

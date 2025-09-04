@@ -1,5 +1,4 @@
 ---
-
 title: "Essential Linux Commands"
 published: 2025-09-01
 draft: false
@@ -341,4 +340,19 @@ Print the current date and time.
 date               # mar. 02 sept. 2025 15:44:52 CEST
 date -u            # mar. 02 sept. 2025 13:44:52 UTC
 date +"%Y-%m-%d"   # 2025-09-02
+```
+
+### free
+Display information about system memory usage.
+
+```bash
+free               # display memory usage
+free -h            # display memory usage in human-readable format
+```
+
+### du
+Check size of a folder
+
+```bash
+du -sh /folder
 ```
