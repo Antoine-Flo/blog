@@ -11,14 +11,14 @@ const config: SiteConfig = {
   // The author of the site, used in the footer, SEO, and RSS feed.
   author: 'Antoine Flouzat',
   // Keywords for SEO, used in the meta tags.
-  tags: ['Astro', 'Terminal', 'Theme', 'MultiTerm', 'stelcodes'],
+  tags: ['DevOps', 'Linux', 'Python'],
 
   // Font imported from @fontsource or elsewhere, used for the entire site.
   // To change this see src/styles/global.css and import a different font.
-  font: 'JetBrains Mono Variable',
+  font: 'Inter Variable',
   // For pagination, the number of posts to display per page.
   // The homepage will display half this number in the "Latest Posts" section.
-  pageSize: 6,
+  pageSize: 8,
   // Whether Astro should resolve trailing slashes in URLs or not.
   // This value is used in the astro.config.mjs file and in the "Search" component to make sure pagefind links match this setting.
   // It is not recommended to change this, since most links existing in the site currently do not have trailing slashes.
@@ -46,7 +46,7 @@ const config: SiteConfig = {
   // The theming configuration for the site.
   themes: {
     // The theming mode. One of "single" | "select" | "light-dark-auto".
-    mode: 'light-dark-auto',
+    mode: 'select',
     // The default theme identifier, used when themeMode is "select" or "light-dark-auto".
     // Make sure this is one of the themes listed in `themes` or "auto" for "light-dark-auto" mode.
     default: 'auto',
@@ -162,7 +162,7 @@ const config: SiteConfig = {
     repo: 'Antoine-Flo/blog',
     repoId: 'R_kgDOPoniIw',
     category: 'Announcements',
-    categoryId: 'DIC_kwDOPoniI84Cu5C',
+    categoryId: 'DIC_kwDOPoniI84Cu5C8',
     reactionsEnabled: true, // Enable reactions on post itself
   },
   // These are characters available for the character chat feature.
