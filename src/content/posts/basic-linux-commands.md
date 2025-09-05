@@ -324,6 +324,15 @@ ls [a-z]*.txt                        # files starting with lowercase
 
 ## Utils
 
+### apt
+To install packages on Debian-based systems.
+
+```bash
+sudo apt update                # update package list
+sudo apt install package_name  # install a package
+sudo apt remove package_name   # remove a package
+```
+
 ### crontab
 Schedule recurring tasks with cron.
 

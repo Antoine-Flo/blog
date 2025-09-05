@@ -5,4 +5,4 @@ avatarImage:
 githubCalendar: 'Antoine-Flo'
 ---
 
-Welcome on my blog where I talk about stuff. If you like the stuff I say, or if you don't, there's a comment section where we can exchange stuff so feel free.
+Welcome on my blog where I talk about stuff. If you like the stuff I say, or if you don't, feel free to reach out.
