@@ -46,7 +46,7 @@ const config: SiteConfig = {
   // The theming configuration for the site.
   themes: {
     // The theming mode. One of "single" | "select" | "light-dark-auto".
-    mode: 'select',
+    mode: 'light-dark-auto',
     // The default theme identifier, used when themeMode is "select" or "light-dark-auto".
     // Make sure this is one of the themes listed in `themes` or "auto" for "light-dark-auto" mode.
     default: 'auto',
@@ -158,13 +158,7 @@ const config: SiteConfig = {
   // You'll need a GitHub repository with discussions enabled and the Giscus app installed.
   // Take the values from the generated script tag at https://giscus.app and fill them in here.
   // If you don't want to use Giscus, set this to undefined.
-  giscus: {
-    repo: 'Antoine-Flo/blog',
-    repoId: 'R_kgDOPoniIw',
-    category: 'Announcements',
-    categoryId: 'DIC_kwDOPoniI84Cu5C8',
-    reactionsEnabled: true, // Enable reactions on post itself
-  },
+  giscus: undefined,
   // These are characters available for the character chat feature.
   // To add your own character, add an image file to the top-level `/public` directory
   // Make sure to compress the image to a web-friendly size (<100kb)
