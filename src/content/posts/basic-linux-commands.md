@@ -365,3 +365,21 @@ Check size of a folder
 ```bash
 du -sh /folder
 ```
+
+## Path manipulation
+
+### basename
+Get the filename from a full path.
+
+```bash
+basename /path/to/file.txt         # Output: file.txt
+basename /path/to/file.txt .txt    # Output: file
+```
+
+### realpath
+Get the absolute path of a file or directory.
+
+```bash
+realpath file.txt                   # Output: /full/path/to/file.txt
+realpath ../relative/path           # Output: /full/path/to/relative/path
+```

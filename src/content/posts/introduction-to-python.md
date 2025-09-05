@@ -63,7 +63,8 @@ type(is_valid)  # <class 'bool'>
 type(z)  # <class 'str'>
 ```
 
-## String manipulation
+## Data Manipulation
+### String manipulation
 
 You can extract substrings using slicing.
 ```python
@@ -99,7 +100,7 @@ z.upper()  # "HELLO"
 z.lower()  # "hello"
 ```
 
-## Number Manipulation
+### Number Manipulation
 Python supports basic arithmetic operations.
 
 ```python
@@ -161,18 +162,9 @@ person["name"]                 # "Alice"
 person["city"] = "Wonderland"  # Assign a new key-value pair
 ```
 
-## Logical operators
-Logical operators are used to combine conditional statements.
-
-```python
-x > 0 and y > 0
-x > 0 or y > 0
-not x > 0
-```
-
 ## Control Structures
 
-### If Statements
+### Conditions
 Conditional statements allow you to execute code based on certain conditions.
 
 ```python
@@ -182,6 +174,15 @@ elif x < 0:
     print("Negative")
 else:
     print("Zero")
+```
+
+### Logical operators
+Logical operators are used to combine conditional statements.
+
+```python
+x > 0 and y > 0
+x > 0 or y > 0
+not x > 0
 ```
 
 ### Loops
@@ -205,7 +206,7 @@ while x > 0:
     x -= 1
 ```
 
-## Functions
+### Functions
 Functions are defined using the `def` keyword.
 
 ```python
@@ -217,7 +218,32 @@ greet("Alice")
 # Output: Hello, Alice
 ```
 
-### Virtual Environments
+### Try and Except
+You can handle exceptions using try and except blocks.
+
+```python
+try:
+    mem = psutil.virtual_memory()
+    with open('file.txt', 'r') as file:
+        content = file.read()
+except (psutil.AccessDenied, PermissionError) as e:
+    print(f"Permission error: {e}", file=sys.stderr)
+except Exception as e:
+    print("An error occurred:", e)
+finally:
+    print("Execution completed.")
+```
+
+### With statement
+The `with` statement is used for resource management and exception handling.
+
+```python
+with open('file.txt', 'r') as file:
+    content = file.read()
+# File is automatically closed after the block
+```
+
+## Virtual Environments
 It's a good practice to use virtual environments to manage dependencies for different projects.
 
 ```bash
@@ -231,10 +257,10 @@ source myenv/bin/activate  # On Windows use `myenv\Scripts\activate`
 deactivate
 ```
 
-### Standard Library
+## Standard Library
 You can import modules to use additional functionality.
 
-## sys
+### sys
 ```python
 import sys 
 
@@ -243,24 +269,35 @@ sys.platform  # 'linux', 'win32', 'darwin', etc.
 sys.version   # Python version
 sys.exit()    # Exit the program
 sys.argv      # Command line arguments
+
+sys.stdout = open('output.txt', 'w')  # Redirect output to a file
+sys.stderr = open('error.txt', 'w')   # Redirect errors to a file
 ```
 
-## os
+### os
 ```python
 # os to interact with the operating system
-os.getcwd()   # Get current working directory
-os.listdir()  # List files in the current directory
+os.getcwd()             # Get current working directory
+os.listdir()            # List files in the current directory
 os.mkdir('new_folder')  # Create a new directory
+
+os.environ['PATH'] += os.pathsep + '/new/path'  # Modify environment variables
 ```
 
-## subprocess
+### subprocess
 ```python
 # subprocess to run external commands
 subprocess.run(['ls', '-l'])         # List files in long format on Unix
-subprocess.run(['dir'], shell=True)  # List files on Windows
+
+result = subprocess.run(['toto'], capture_output=True, text=True)  # List files on Windows
+if result.returncode == 0:
+    subprocess.run(['echo', 'Command succeeded'])
+    print(result.stdout)
+else:
+    print("Error:", result.stderr)
 ```
 
-## shutil
+### shutil
 ```python
 import shutil
 
@@ -271,9 +308,9 @@ shutil.rmtree('folder_to_delete')             # Delete a folder and its contents
 
 You can use external libraries using the package manager pip.
 
-### External Libraries
+## External Libraries
 
-## psutil
+### psutil
 Get information about system utilization (CPU, memory, disks, network, sensors) and running processes.
 
 ```bash
@@ -282,4 +319,8 @@ pip install psutil
 
 ```python
 import psutil
+
+psutil.cpu_percent(interval=1)  # CPU usage percentage
+psutil.virtual_memory()          # Memory usage
+psutil.disk_usage('/')           # Disk usage
 ```

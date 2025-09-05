@@ -9,6 +9,13 @@ tags: ['security']
 
 Linux offers a powerful set of tools for managing user rights and permissions. We give minimum rights to users and processes to limit potential damage.
 
+## The three kind of rights
+
+1. Read (r): Allows a user to view the contents of a file or directory.
+2. Write (w): Allows a user to modify or delete a file or directory.
+3. Execute (x): Allows a user to run a file or access a directory.
+
+
 ## The three permission groups
 
 ### Users
@@ -17,7 +24,6 @@ Each individual user on a Linux system has a unique user ID (UID) and associated
 There is one special user named rot. The root user has unrestricted access to all commands and files on a Linux system. As a best practice, it is recommended to use the root account only when absolutely necessary.
 
 ### Group
-
 You can organize users into groups to manage permissions more easily. Each file and directory has an associated group, and users can be added to or removed from these groups.
 
 A user can be in multiple groups. In that case, the user inherits the permissions of all groups they belong to.
@@ -26,10 +32,19 @@ A file always has an owner (user) and a group owner. The owner has full permissi
 
 
 ### Others
-
 Others refer to all users who are not the owner of a file or a member of the file's group. They have the least amount of permissions.
 
 ## Manage group and user
+
+### Get infos about user and group
+
+```bash
+cut -d: -f1 /etc/passwd  # List all users
+cut -d: -f1 /etc/group  # List all groups
+
+id [username]  # Get user ID (uid), group ID (gid), and group memberships
+groups [username]  # List all groups the user is a member of
+```
 
 ### Create a user
 
@@ -46,18 +61,32 @@ sudo groupadd [groupname]
 ### Add a user to a group
 
 ```bash
-sudo usermod -aG [groupname] [username]
+# When creating a new user
+sudo useradd -m -G [groupname] [username]  # -m creates home directory
+# Add an existing user to a group
+sudo usermod -aG [groupname] [username] # -a append, keep the previous groups
 ```
 
-## The three kind of rights
+### Delete a user or a group
 
-1. Read (r): Allows a user to view the contents of a file or directory.
-2. Write (w): Allows a user to modify or delete a file or directory.
-3. Execute (x): Allows a user to run a file or access a directory.
+```bash
+sudo userdel [username]  # Delete a user
+sudo groupdel [groupname]  # Delete a group
+sudo userdel -r [username]  # Delete a user and their home directory
+```
 
-## Check rights 
+### Set password for a user
 
-### Symbolic notation
+```bash
+sudo passwd [username]
+sudo chpasswd [username]  # Change password
+```
+
+## Manage rights
+
+### Check rights 
+
+#### Symbolic notation
 
 You can check the permissions of a file or directory using the `ls -l` command. This will display a list of files and directories along with their permissions, owners, and groups.
 
@@ -79,7 +108,7 @@ The rights are divided 3 by 3. The first character represents the file type '-' 
 
 For the `file.txt`, the owner (user) has `rw-` read and write permissions, the group has read permissions `r--`, and others have read permissions. For the `script.sh`, the owner has read, write, and execute permissions, the group has read and execute permissions, and others have read and execute permissions.
 
-### Octal notation
+#### Octal notation
 
 In addition to the previous notation, Linux also supports octal notation for file permissions. In this notation, each permission is represented by a number:
 
@@ -101,13 +130,9 @@ Using octal notation, the permissions for the files in our example would be:
 ```
 
 
-## Update rights
+### Update rights
 
-### chmod
-
-The `chmod` command is used to change the permissions of a file or directory. You can use either symbolic or octal notation with this command.
-
-#### Symbolic notation
+#### chmod
 
 To add or remove permissions :
 
@@ -127,8 +152,6 @@ chmod u+x,g-w script.sh # Assign multiple permissions
 chmod o=r-- script.sh
 ```
 
-#### Octal notation
-
 To change permissions using octal notation :
 
 ```bash
@@ -141,7 +164,7 @@ For example, to set the permissions of `file.txt` to `644`, you would run:
 chmod 644 file.txt
 ```
 
-### Chown
+#### Change owner
 
 The `chown` command is used to change the owner and group of a file or directory :
 
@@ -155,7 +178,7 @@ For example, to change the owner of `file.txt` to `alice` and the group to `dev`
 sudo chown alice:dev file.txt
 ```
 
-### chgrp
+#### Change groupe
 
 The `chgrp` command is used to change the group ownership of a file or directory :
 
@@ -168,15 +191,6 @@ sudo chgrp dev file.txt
 ```
 
 ## Useful commands
-
-### Check user group
-
-```bash
-id -ng
-
-id -Gn # List all groups the user is a member of
-```
-> devops dev
 
 ### sudo
 
@@ -191,3 +205,24 @@ For example, to edit a system file with a text editor :
 ```bash
 sudo nano /etc/hosts
 ```
+
+### Update a user
+
+`usermod` command is used to modify a user account. You can change various attributes of the user, such as their home directory, shell, or group memberships.
+
+```bash
+sudo usermod -d /new/home/dir alice  # Change home directory
+sudo usermod -s /bin/zsh alice  # Change default shell to zsh
+sudo usermod -L alice  # Lock the user account
+sudo usermod -U alice  # Unlock the user account
+```
+
+### Check user group
+
+```bash
+id -ng
+
+id -Gn # List all groups the user is a member of
+```
+> devops dev
+
