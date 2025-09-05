@@ -19,7 +19,9 @@ const filteredHeadings = headings.filter(({ depth }) => depth >= 2 && depth <= 3
     class="list-none marker:hidden marker:content-[''] before:content-['>'] before:text-accent before:font-semibold before:absolute before:left-3 cursor-pointer"
     >Table of Contents</summary
   >
-  <nav class="w-full text-sm xl:-ml-1">
+  <nav
+    class="w-full text-sm xl:-ml-1 xl:overflow-y-auto xl:max-h-[calc(100vh-12rem)] xl:pr-2 scrollbar-thin scrollbar-thumb-accent/20 scrollbar-track-transparent hover:scrollbar-thumb-accent/40"
+  >
     <ul class="mt-4 flex flex-col max-w-full">
       {filteredHeadings.map((heading) => <TOCHeading heading={heading} />)}
     </ul>

@@ -167,6 +167,30 @@ echo "hello world" | wc -w           # count words in string
 ```
 
 ### awk
+Perform text manipulation and data extraction. Nice when the text looks like a table.
+
+```bash
+awk '{print $1}' file.txt                   # print first column
+awk '{print $NF}' file.txt                  # print last column
+awk '{sum += $3} END {print sum}' file.txt  # sum all values in column 3
+
+# Calculate average of numbers in second column
+awk '{sum += $2; count++} END {print sum/count}' numbers.txt
+
+# Print lines longer than 80 characters
+awk 'length > 80' file.txt
+```
+
+### sed
+Similar to awk, more suitable for complex replacements based on regex.
+
+```bash
+sed 's/old/new/g' file.txt   # replace all occurrences of "old" with "new"
+sed '/pattern/d' file.txt    # delete lines matching pattern
+sed 's/^#.*$//' file.txt     # remove comments from shell scripts
+sed '1,3d' file.txt          # delete lines 1 to 3
+sed 's/ /\n/g' file.txt      # replace spaces with newlines
+```
 
 ## System commands
 
