@@ -201,6 +201,18 @@ Print name of the current user. Identify which user account you're currently usi
 whoami                               # shows current username
 ```
 
+### systemctl
+Control and manage system services. Start, stop, enable, or check status of services.
+
+```bash
+systemctl status nginx                # check status of nginx service
+systemctl start nginx                 # start nginx service
+systemctl stop nginx                  # stop nginx service
+systemctl restart nginx               # restart nginx service
+systemctl enable nginx                # enable nginx to start on boot
+systemctl disable nginx               # disable nginx from starting on boot
+```
+
 ### ps aux
 Print currently running processes with detailed information. Monitor what's running on your system.
 
