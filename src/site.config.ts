@@ -4,7 +4,7 @@ const config: SiteConfig = {
   // Absolute URL to the root of your published site, used for generating links and sitemaps.
   site: 'https://blog-cow.pages.dev',
   // The name of your site, used in the title and for SEO.
-  title: 'Antoine Flouzat',
+  title: 'DevOps Journey',
   // The description of your site, used for SEO and RSS feed.
   description:
     'A coder-ready Astro blog theme with 59 of your favorite color schemes to choose from',
@@ -34,13 +34,8 @@ const config: SiteConfig = {
       url: '/about',
     },
     {
-      name: 'Archive',
+      name: 'Blog',
       url: '/posts',
-    },
-    {
-      name: 'GitHub',
-      url: 'https://github.com/Antoine-Flo/blog',
-      external: true,
     },
   ],
   // The theming configuration for the site.

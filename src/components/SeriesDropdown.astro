@@ -1,0 +1,50 @@
+---
+import { SeriesGroup } from '~/utils'
+
+interface Props {
+  isMobile?: boolean
+}
+
+const { isMobile = false } = Astro.props
+const seriesGroup = await SeriesGroup.build()
+---
+
+<div class={isMobile ? 'flex flex-col space-y-1' : 'flex flex-row space-x-5'}>
+  {
+    seriesGroup.collations.map((series) => (
+      <div class="relative group mr-3">
+        <span class="underline text-accent hover:text-foreground transition-colors duration-200 flex items-center gap-1 cursor-pointer">
+          {series.title}
+          <svg
+            class="w-3 h-3 transition-transform duration-200 group-hover:rotate-180"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 9l-7 7-7-7"
+            />
+          </svg>
+        </span>
+
+        <div
+          class={`group-hover:opacity-100 group-hover:visible opacity-0 invisible transition-all duration-200 ${isMobile ? 'relative mt-2 bg-transparent pl-4' : 'absolute top-full left-0 mt-1 bg-background border-2 border-accent/20 rounded-xl shadow-lg z-50 min-w-48'}`}
+        >
+          <div class={isMobile ? 'py-1' : 'p-2'}>
+            {series.entries.map((post) => (
+              <a
+                href={`/posts/${post.id}`}
+                class={`block px-3 py-2 text-accent hover:text-foreground hover:bg-accent/10 rounded-lg transition-colors duration-200 ${isMobile ? 'text-sm border-l-2 border-accent/20 ml-2' : 'text-sm'}`}
+              >
+                {post.data.title}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    ))
+  }
+</div>

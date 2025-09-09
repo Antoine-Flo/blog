@@ -5,7 +5,6 @@ import { SeriesGroup, TagsGroup, getSortedPosts } from '~/utils'
 import PostPreview from '~/components/PostPreview.astro'
 import DividerText from '~/components/DividerText.astro'
 import { getCollection, render, type CollectionEntry } from 'astro:content'
-import PostAddendum from '~/components/PostAddendum.astro'
 import TableOfContents from '~/components/TableOfContents.astro'
 import { Image } from 'astro:assets'
 import GiscusLoader from '~/components/GiscusLoader.astro'
@@ -32,15 +31,6 @@ export const getStaticPaths = (async () => {
 const { post, prev, next } = Astro.props
 const postData = post.data
 const { headings, Content: PostContent } = await render(post)
-const addendum = await getCollection('addendum')
-let AddendumContent
-let addendumAvatarImage
-if (addendum.length > 0) {
-  const addendumEntry = addendum[0]
-  const { Content } = await render(addendumEntry)
-  AddendumContent = Content
-  addendumAvatarImage = addendumEntry.data.avatarImage
-}
 
 const sortedPosts = await getSortedPosts()
 
@@ -88,15 +78,15 @@ if (postData.tags && postData.tags.length > 0) {
       <h1 id={post.id} class="mb-4 text-[1.75rem] text-heading1 font-semibold">
         # {postData.title}
       </h1>
-      <div class="my-2 border-l-2 border-accent/80 pl-4 py-2">
-        <PostInfo post={post} class="mb-1" />
-        {
+      <div class="border-l-2 border-accent/80 pl-4 py-2">
+        <PostInfo post={post} />
+        <!-- {
           tags && (
             <div class="mt-4">
               <Tags tags={tags} />
             </div>
           )
-        }
+        } -->
       </div>
     </div>
     <!-- <hr class="border-accent/10 border-2 rounded-xl hidden lg:block" /> -->
@@ -116,13 +106,6 @@ if (postData.tags && postData.tags.length > 0) {
         <span>Next: {nextPostInSeries.data.title}</span>
         <ChevronsRight class="size-5 hidden sm:block" />
       </a>
-    )
-  }
-  {
-    AddendumContent && (
-      <PostAddendum avatarImage={addendumAvatarImage}>
-        <AddendumContent />
-      </PostAddendum>
     )
   }
   {
