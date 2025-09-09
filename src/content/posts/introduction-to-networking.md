@@ -201,5 +201,4 @@ The `nmap` command is a network scanning tool used to discover hosts and service
 
 ```bash
 nmap google.com # Scan google.com for open ports 
-
 ```
