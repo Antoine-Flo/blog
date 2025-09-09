@@ -1,8 +1,9 @@
 ---
-title: "Linux rights"
+title: "Linux File Permissions"
 published: 2025-07-07
 draft: false
-description: 'How to make sure that only the users that need it can access to specific files or commands ?'
+toc: true
+description: 'Understanding Linux file permissions and user access control—how to secure your files and directories properly.'
 series: 'Linux'
 tags: ['security']
 ---

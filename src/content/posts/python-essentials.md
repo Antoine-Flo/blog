@@ -1,13 +1,14 @@
 ---
-title: "Python Programming Guide: Syntax, Data Structures, and Essential Libraries"
+title: "Python Essentials"
 published: 2025-09-04
 draft: false
 toc: true
-description: "Complete Python reference covering syntax, data structures, control flow, file handling, and essential libraries. Perfect for developers familiar with programming concepts seeking Python mastery."
+description: "Complete Python reference covering syntax, data structures, control flow, file handling, and core libraries—perfect for experienced developers switching to Python."
 tags: ['python', 'programming', 'tutorial']
+series: 'Programming'
 ---
 
-Python is a high-level, interpreted programming language known for its readable syntax and versatility. This guide covers essential concepts for developers transitioning to Python or seeking a comprehensive reference.
+Python is a high-level, interpreted programming language. This guide covers essential concepts for developers transitioning to Python or seeking a comprehensive reference.
 
 ## Installation
 

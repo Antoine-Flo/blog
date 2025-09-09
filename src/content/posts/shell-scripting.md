@@ -1,8 +1,9 @@
 ---
-title: "Shell scripting"
+title: "Shell Scripting Basics"
 published: 2025-07-07
 draft: false
-description: 'How to automate tasks using shell scripting.'
+toc: true
+description: 'Automate repetitive tasks and streamline your workflow with practical shell scripting examples.'
 series: 'Linux'
 tags: ['bash']
 ---

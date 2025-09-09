@@ -3,7 +3,7 @@ title: "Essential Linux Commands"
 published: 2025-09-01
 draft: false
 toc: true
-description: "A compilation of essential Linux commands to get you started"
+description: "A compilation of the most important Linux commands every developer needs, from file management to process control."
 series: 'Linux'
 tags: ['cli', 'bash']
 ---
