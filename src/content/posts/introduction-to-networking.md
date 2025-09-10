@@ -1,204 +1,205 @@
 ---
-title: "Introduction to Networking"
+title: "Introduction aux réseaux"
 published: 2025-09-04
 draft: false
 toc: true
-description: "Learn the fundamental hardware components and protocols that power network communication, plus essential Linux commands for network troubleshooting."
+description: "Apprenez les composants matériels fondamentaux et les protocoles qui alimentent la communication réseau, ainsi que les commandes Linux essentielles pour le dépannage réseau."
 series: 'Basic'
 tags: ['networking', 'tutorial']
 ---
 
 
-## OSI Model
-The OSI (Open Systems Interconnection) model is a conceptual framework used to understand and implement network protocols in seven layers. Each layer serves a specific function and communicates with the layers directly above and below it.
+## Modèle OSI
+Le modèle OSI (Open Systems Interconnection) est un cadre conceptuel utilisé pour comprendre et implémenter les protocoles réseau en sept couches. Chaque couche remplit une fonction spécifique et communique avec les couches directement au-dessus et en-dessous d'elle.
 
-1. **Physical Layer**: The actual wires and signals
-Example: Ethernet cable carrying electrical signals, fiber optics, Wi-Fi radio waves
+1. **Couche physique** : Les fils et signaux réels
+Exemple : Câble Ethernet transportant des signaux électriques, fibre optique, ondes radio Wi-Fi
 
-2. **Data Link Layer**: Device-to-device communication on same network
-Example: Your laptop talking to your Wi-Fi router, MAC addresses, switches
+2. **Couche liaison de données** : Communication appareil à appareil sur le même réseau
+Exemple : Votre ordinateur portable parlant à votre routeur Wi-Fi, adresses MAC, commutateurs
 
-3. **Network Layer**: Finding paths across different networks
-Example: GPS for data - router, NAT, IP addressing
+3. **Couche réseau** : Trouver des chemins à travers différents réseaux
+Exemple : GPS pour les données - routeur, NAT, adressage IP
 
-4. **Transport Layer**: Reliable delivery and error checking
-Example: TCP ensures your email arrives complete and in order
+4. **Couche transport** : Livraison fiable et vérification d'erreurs
+Exemple : TCP s'assure que votre email arrive complet et dans l'ordre
 
-5. **Session Layer**: Managing conversations between apps
-Example: Keeping your video call connected for 30 minutes
+5. **Couche session** : Gérer les conversations entre applications
+Exemple : Maintenir votre appel vidéo connecté pendant 30 minutes
 
-6. **Presentation Layer**: Data formatting and encryption
-Example: Converting HTTPS encrypted data into readable text
+6. **Couche présentation** : Formatage des données et chiffrement
+Exemple : Convertir les données HTTPS chiffrées en texte lisible
 
-7. **Application Layer**: The programs you actually use
-Example: Your web browser, email client, or messaging app
-
-
-## Hardware components
-
-### Switch
-Between the router and the computers, there is a switch. It knows the addresses of the devices on the local network (LAN). It manages data traffic between them. It operates at the data link layer (Layer 2) of the OSI model.
-
-### Router
-The router connects the local network to the internet. It forwards data packets between different networks. Its uses a routing table to determine the best path for forwarding the packets. It operates at the network layer (Layer 3) of the OSI model.
-
-### DHCP Server
-The DHCP (Dynamic Host Configuration Protocol) server assigns IP addresses to devices on the local network. It ensures that each device has a unique IP address. The DHCP server is often integrated into the router. It operates at the application layer (Layer 7) of the OSI model.
-
-### Firewall
-A firewall monitors and controls incoming and outgoing network traffic based on predetermined security rules. It establishes a barrier between a trusted internal network and untrusted external networks, such as the internet. Firewalls can be hardware-based, software-based, or a combination of both.
-
-## Protocols
-
-### IP addresses
-An IP address (Internet Protocol address) is a unique numerical label assigned to every device connected to a network. It serves two main functions: identifying the device and providing the location of the host in the network. There is two kind of IP addresses:
-
-- IPv4: 32-bit, 4 blocks (0-255) allowing for approximately 4.3 billion unique addresses (e.g., 192.168.1.1).
-- IPv6: 128-bit, 8 blocks (0 - FFFF) allowing for a vastly larger number of unique addresses (e.g., 2001:0db8:85a3:0000:0000:8a2e:0370:7334).
-
-Mask: A subnet mask is used to divide an IP address into network and host portions. It defines the boundary of your network. Example:
+7. **Couche application** : Les programmes que vous utilisez réellement
+Exemple : Votre navigateur web, client email, ou application de messagerie
 
 
+## Composants matériels
+
+### Commutateur
+Entre le routeur et les ordinateurs, il y a un commutateur. Il connaît les adresses des appareils sur le réseau local (LAN). Il gère le trafic de données entre eux. Il fonctionne à la couche liaison de données (Couche 2) du modèle OSI.
+
+### Routeur
+Le routeur connecte le réseau local à internet. Il transfère les paquets de données entre différents réseaux. Il utilise une table de routage pour déterminer le meilleur chemin pour transférer les paquets. Il fonctionne à la couche réseau (Couche 3) du modèle OSI.
+
+### Serveur DHCP
+Le serveur DHCP (Dynamic Host Configuration Protocol) attribue des adresses IP aux appareils sur le réseau local. Il s'assure que chaque appareil a une adresse IP unique. Le serveur DHCP est souvent intégré dans le routeur. Il fonctionne à la couche application (Couche 7) du modèle OSI.
+
+### Pare-feu
+Un pare-feu surveille et contrôle le trafic réseau entrant et sortant basé sur des règles de sécurité prédéterminées. Il établit une barrière entre un réseau interne de confiance et des réseaux externes non fiables, comme internet. Les pare-feux peuvent être basés sur du matériel, des logiciels, ou une combinaison des deux.
+
+## Protocoles
+
+### Adresses IP
+Une adresse IP (Internet Protocol address) est une étiquette numérique unique attribuée à chaque appareil connecté à un réseau. Elle remplit deux fonctions principales : identifier l'appareil et fournir l'emplacement de l'hôte dans le réseau. Il y a deux types d'adresses IP :
+
+- IPv4 : 32-bit, 4 blocs (0-255) permettant environ 4,3 milliards d'adresses uniques (ex : 192.168.1.1).
+- IPv6 : 128-bit, 8 blocs (0 - FFFF) permettant un nombre considérablement plus grand d'adresses uniques (ex : 2001:0db8:85a3:0000:0000:8a2e:0370:7334).
+
+Masque : Un masque de sous-réseau est utilisé pour diviser une adresse IP en parties réseau et hôte. Il définit la frontière de votre réseau. Exemple :
+
+```
 255.255.255.0
-|   |   |   |
-|   |   |   +-- Host part (0-255)
-|---|---|---+------ Network part (192.168.1) or (10.0.0)
+ │   │   │   │
+ │   │   │   └── Partie hôte (Entre 0 et 255)
+ └───┴───┴────── Partie réseau (192.168.1 par exemple)
+```
 
-0.0.0.0/0 means "all IP addresses". The first 4 numbers are the IP address, the /0 is the mask.
+0.0.0.0/0 signifie "toutes les adresses IP". Les 4 premiers nombres sont l'adresse IP, le /0 est le masque.
 
-255 in this exemple could be 0, 128, 192, 224, 240, 248, 252, 254 or 255. If it was 255, it would mean "all devices in this network". For 128 it would be "first half of the devices in this network", for exemple : 
+255 dans cet exemple pourrait être 0, 128, 192, 224, 240, 248, 252, 254 ou 255. Si c'était 255, cela signifierait "tous les appareils dans ce réseau". Pour 128 ce serait "la première moitié des appareils dans ce réseau", par exemple :
 
-Takes an IP like 192.168.1.100 and says "192.168.1 is your neighborhood, 100 is your house number."
+Prend une IP comme 192.168.1.100 et dit "192.168.1 est votre quartier, 100 est votre numéro de maison."
 
-The last address in a subnet is called the broadcast address. It is used to send data to all devices on the subnet. For a subnet with a mask of 255.255.255.0, the broadcast address would be 192.168.1.255.
+La dernière adresse dans un sous-réseau est appelée l'adresse de diffusion. Elle est utilisée pour envoyer des données à tous les appareils du sous-réseau. Pour un sous-réseau avec un masque de 255.255.255.0, l'adresse de diffusion serait 192.168.1.255.
 
-Three notation :
-- Binary: 11111111.11111111.11111111.00000000
-- Decimal: 255.255.255.0
-- CIDR: /24
+Trois notations :
+- Binaire : 11111111.11111111.11111111.00000000
+- Décimal : 255.255.255.0
+- CIDR : /24
 
-Exemple calculation :
+Exemple de calcul :
 11111111.11111111.11111110.00000000
 
 23 >> 1
 9 >> 0
 
-2^(32-23) - 2 = 510 - 2 = 508 hosts
+2^(32-23) - 2 = 510 - 2 = 508 hôtes
 
-32 Total length of ip address
--2 2 reserved (network and broadcast address)
+32 Longueur totale de l'adresse IP
+-2 2 réservées (adresse réseau et diffusion)
 
 128 - 64 - 32 - 16 - 8 - 4 - 2 - 1
 
 #### Ports
-Ports are like doors on a computer that allow different types of network traffic to enter and exit. They are represented by a number between 0 and 65535. Some ports are reserved for specific services:
+Les ports sont comme des portes sur un ordinateur qui permettent à différents types de trafic réseau d'entrer et de sortir. Ils sont représentés par un nombre entre 0 et 65535. Certains ports sont réservés pour des services spécifiques :
 
-- 80: HTTP (web traffic)
-- 443: HTTPS (secure web traffic)
-- 22: SSH (secure shell for remote access)
-- 25: SMTP (sending email)
-- 53: DNS (domain name system)
+- 80: HTTP (trafic web)
+- 443: HTTPS (trafic web sécurisé)
+- 22: SSH (shell sécurisé pour accès distant)
+- 25: SMTP (envoi d'email)
+- 53: DNS (système de noms de domaine)
 
-They are used in addition to IP addresses to direct traffic to the correct application or service on a device. For example, when you visit a website, your computer connects to the server's IP address on port 80 (HTTP), example: 75.2.70.75:80
+Ils sont utilisés en plus des adresses IP pour diriger le trafic vers la bonne application ou service sur un appareil. Par exemple, quand vous visitez un site web, votre ordinateur se connecte à l'adresse IP du serveur sur le port 80 (HTTP), exemple : 75.2.70.75:80
 
 ### TCP
-A connection-oriented protocol that ensures reliable data transmission between devices. It establishes a connection before data is sent and guarantees that all packets arrive in order and without errors. It is used for applications where reliability is crucial, such as web browsing (HTTP/HTTPS), email (SMTP), and file transfers (FTP).
+Un protocole de connexion qui assure une transmission fiable des données entre appareils. Il établit une connexion avant que les données soient envoyées et garantit que tous les paquets arrivent dans l'ordre et sans erreurs. Il est utilisé pour les applications où la fiabilité est cruciale, comme la navigation web (HTTP/HTTPS), l'email (SMTP), et les transferts de fichiers (FTP).
 
 ### UDP
-A connectionless protocol that does not guarantee reliable data transmission. It sends packets without establishing a connection and does not ensure that packets arrive in order or without errors. It is used for applications where speed is more important than reliability, such as video streaming, online gaming, and voice over IP (VoIP).
+Un protocole sans connexion qui ne garantit pas une transmission fiable des données. Il envoie des paquets sans établir de connexion et n'assure pas que les paquets arrivent dans l'ordre ou sans erreurs. Il est utilisé pour les applications où la vitesse est plus importante que la fiabilité, comme le streaming vidéo, les jeux en ligne, et la voix sur IP (VoIP).
 
 ### HTTP/HTTPS
-HTTP (Hypertext Transfer Protocol) is the foundation of data communication on the web. It defines how messages are formatted and transmitted, and how web servers and browsers should respond to various commands.
+HTTP (Hypertext Transfer Protocol) est la fondation de la communication de données sur le web. Il définit comment les messages sont formatés et transmis, et comment les serveurs web et navigateurs doivent répondre à diverses commandes.
 
 ### FTP
-FTP (File Transfer Protocol) is a standard network protocol used to transfer files between a client and a server over a TCP-based network, such as the internet. FTP operates at the application layer (Layer 7) of the OSI model.
+FTP (File Transfer Protocol) est un protocole réseau standard utilisé pour transférer des fichiers entre un client et un serveur sur un réseau basé TCP, comme internet. FTP fonctionne à la couche application (Couche 7) du modèle OSI.
 
-### MAC address
-A MAC (Media Access Control) address is a unique identifier assigned to a network interface controller (NIC) for use as a network address in communications within a network segment. MAC addresses are used in the data link layer (Layer 2) of the OSI model.
+### Adresse MAC
+Une adresse MAC (Media Access Control) est un identifiant unique attribué à un contrôleur d'interface réseau (NIC) pour être utilisé comme adresse réseau dans les communications au sein d'un segment réseau. Les adresses MAC sont utilisées dans la couche liaison de données (Couche 2) du modèle OSI.
 
 ### ICMP
-ICMP (Internet Control Message Protocol) is used for error messages and operational information. For example, the `ping` command uses ICMP to test the reachability of a host on an IP network. It operates at the network layer (Layer 3) of the OSI model.
+ICMP (Internet Control Message Protocol) est utilisé pour les messages d'erreur et l'information opérationnelle. Par exemple, la commande `ping` utilise ICMP pour tester l'accessibilité d'un hôte sur un réseau IP. Il fonctionne à la couche réseau (Couche 3) du modèle OSI.
 
 ### DORA
-DORA stands for Discover, Offer, Request, Acknowledge. It is the process used by the DHCP (Dynamic Host Configuration Protocol) to assign IP addresses to devices on a network.
+DORA signifie Discover, Offer, Request, Acknowledge (Découvrir, Offrir, Demander, Acquitter). C'est le processus utilisé par le DHCP (Dynamic Host Configuration Protocol) pour attribuer des adresses IP aux appareils sur un réseau.
 
-## WAN and LAN
-- WAN (Wide Area Network): A WAN is a telecommunications network that extends over a large geographical area, often a country or continent. The internet is the largest example of a WAN.
-- LAN (Local Area Network): A LAN is a network that connects computers and devices in a limited geographical area, such as a home, school, or office building. LANs are typically faster and more secure than WANs.
+## WAN et LAN
+- WAN (Wide Area Network) : Un WAN est un réseau de télécommunications qui s'étend sur une grande zone géographique, souvent un pays ou un continent. Internet est le plus grand exemple de WAN.
+- LAN (Local Area Network) : Un LAN est un réseau qui connecte ordinateurs et appareils dans une zone géographique limitée, comme une maison, école, ou bâtiment de bureau. Les LANs sont typiquement plus rapides et plus sécurisés que les WANs.
 
 ### NAT 
-NAT is about translating private IPs to public IPs so devices on a private network can access the internet.
+NAT consiste à traduire les IPs privées en IPs publiques pour que les appareils sur un réseau privé puissent accéder à internet.
 
-- Private IP ranges (RFC1918):
+- Plages d'IP privées (RFC1918) :
   - 10.0.0.0/8
   - 172.16.0.0/12
   - 192.168.0.0/16
 
-- How NAT works:
-  - Your laptop has a private IP, e.g., 192.168.1.10.
-  - You want to reach 8.8.8.8 (Google DNS).
-  - The NAT device (usually a router) replaces your private IP with its public IP for outgoing packets.
-  - When responses come back, NAT translates it back to your private IP.
+- Comment NAT fonctionne :
+  - Votre ordinateur portable a une IP privée, ex : 192.168.1.10.
+  - Vous voulez atteindre 8.8.8.8 (DNS Google).
+  - L'appareil NAT (habituellement un routeur) remplace votre IP privée par son IP publique pour les paquets sortants.
+  - Quand les réponses reviennent, NAT le traduit de nouveau vers votre IP privée.
 
-NAT is why multiple devices in your home can share a single public IP.
+NAT est pourquoi plusieurs appareils dans votre maison peuvent partager une seule IP publique.
 
 
-## Configruration files
+## Fichiers de configuration
 
 ### /etc/hosts
-The `/etc/hosts` file is a simple text file that maps hostnames to IP addresses
+Le fichier `/etc/hosts` est un fichier texte simple qui mappe les noms d'hôtes aux adresses IP
 
 networks
 ### /etc/resolv.conf
-The `/etc/resolv.conf` file is used to configure DNS (Domain Name System) settings on a Linux system. It specifies the DNS servers that the system should use to resolve domain names into IP addresses.
+Le fichier `/etc/resolv.conf` est utilisé pour configurer les paramètres DNS (Domain Name System) sur un système Linux. Il spécifie les serveurs DNS que le système doit utiliser pour résoudre les noms de domaine en adresses IP.
 
 ### /etc/network/interfaces
-The `/etc/network/interfaces` file is used to configure network interfaces on Debian-based Linux distributions.
+Le fichier `/etc/network/interfaces` est utilisé pour configurer les interfaces réseau sur les distributions Linux basées Debian.
 
 ### /etc/hostname
-The `/etc/hostname` file contains the hostname of the system. The hostname is a human-readable label that is used to identify the system on a network.
+Le fichier `/etc/hostname` contient le nom d'hôte du système. Le nom d'hôte est une étiquette lisible par l'homme qui est utilisée pour identifier le système sur un réseau.
 
 
-## Commands
+## Commandes
 
 
 ### sudo /etc/init.d/networking restart
-Restart the networking service to apply changes made to network configuration files.
+Redémarre le service réseau pour appliquer les changements faits aux fichiers de configuration réseau.
 
 ### ping
-The `ping` command is used to test the reachability of a host on an IP network. 
+La commande `ping` est utilisée pour tester l'accessibilité d'un hôte sur un réseau IP. 
 
 ```bash
-ping 8.8.8.8  # Ping Google's public DNS server
-ping example.com  # Ping a domain name
+ping 8.8.8.8  # Ping du serveur DNS public de Google
+ping example.com  # Ping d'un nom de domaine
 ```
 
 ### ip
-The `ip` command is used to show and manipulate routing, devices, policy routing, and tunnels.
+La commande `ip` est utilisée pour afficher et manipuler le routage, les appareils, le routage de politique, et les tunnels.
 
 ```bash
-ip addr show          # Show all IP addresses
-ip link show          # Show all network interfaces
-ip route show         # Show the routing table  
+ip addr show          # Afficher toutes les adresses IP
+ip link show          # Afficher toutes les interfaces réseau
+ip route show         # Afficher la table de routage  
 ```
 
 ### traceroute
-The `traceroute` command is used to trace the path that packets take from your computer to a destination host.
+La commande `traceroute` est utilisée pour tracer le chemin que prennent les paquets de votre ordinateur vers un hôte de destination.
 
 ```bash
-traceroute example.com  # Trace the route to example.com
+traceroute example.com  # Tracer la route vers example.com
 ```
 
 ### dhclient
-The `dhclient` command is a DHCP client that is used to obtain an IP address and other network configuration parameters from a DHCP server.
+La commande `dhclient` est un client DHCP qui est utilisé pour obtenir une adresse IP et d'autres paramètres de configuration réseau d'un serveur DHCP.
 
 ```bash
-sudo dhclient -v # Request an IP address with verbose output
+sudo dhclient -v # Demander une adresse IP avec sortie détaillée
 ```
 
 ### nmap
-The `nmap` command is a network scanning tool used to discover hosts and services on a computer network.
+La commande `nmap` est un outil de scan réseau utilisé pour découvrir des hôtes et services sur un réseau informatique.
 
 ```bash
-nmap google.com # Scan google.com for open ports 
+nmap google.com # Scanner google.com pour les ports ouverts 
 ```
