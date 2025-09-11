@@ -111,6 +111,15 @@ Un protocole sans connexion qui ne garantit pas une transmission fiable des donn
 ### HTTP/HTTPS
 HTTP (Hypertext Transfer Protocol) est la fondation de la communication de données sur le web. Il définit comment les messages sont formatés et transmis, et comment les serveurs web et navigateurs doivent répondre à diverses commandes.
 
+### SSH
+SSH (Secure Shell) est un protocole réseau qui permet une communication sécurisée entre deux appareils. Il est utilisé pour l'accès à distance aux serveurs et le transfert sécurisé de fichiers. SSH chiffre toutes les données échangées.
+
+```bash
+ssh user@hostname_or_ip
+``` 
+
+Vous pouvez vous connecter par mot de passe ou en utilisant une paire de clés publique/privée. Le plus sûr est d'utiliser une paire de clés.
+
 ### FTP
 FTP (File Transfer Protocol) est un protocole réseau standard utilisé pour transférer des fichiers entre un client et un serveur sur un réseau basé TCP, comme internet. FTP fonctionne à la couche application (Couche 7) du modèle OSI.
 
@@ -159,47 +168,7 @@ Le fichier `/etc/network/interfaces` est utilisé pour configurer les interfaces
 ### /etc/hostname
 Le fichier `/etc/hostname` contient le nom d'hôte du système. Le nom d'hôte est une étiquette lisible par l'homme qui est utilisée pour identifier le système sur un réseau.
 
-
 ## Commandes
-
 
 ### sudo /etc/init.d/networking restart
 Redémarre le service réseau pour appliquer les changements faits aux fichiers de configuration réseau.
-
-### ping
-La commande `ping` est utilisée pour tester l'accessibilité d'un hôte sur un réseau IP. 
-
-```bash
-ping 8.8.8.8  # Ping du serveur DNS public de Google
-ping example.com  # Ping d'un nom de domaine
-```
-
-### ip
-La commande `ip` est utilisée pour afficher et manipuler le routage, les appareils, le routage de politique, et les tunnels.
-
-```bash
-ip addr show          # Afficher toutes les adresses IP
-ip link show          # Afficher toutes les interfaces réseau
-ip route show         # Afficher la table de routage  
-```
-
-### traceroute
-La commande `traceroute` est utilisée pour tracer le chemin que prennent les paquets de votre ordinateur vers un hôte de destination.
-
-```bash
-traceroute example.com  # Tracer la route vers example.com
-```
-
-### dhclient
-La commande `dhclient` est un client DHCP qui est utilisé pour obtenir une adresse IP et d'autres paramètres de configuration réseau d'un serveur DHCP.
-
-```bash
-sudo dhclient -v # Demander une adresse IP avec sortie détaillée
-```
-
-### nmap
-La commande `nmap` est un outil de scan réseau utilisé pour découvrir des hôtes et services sur un réseau informatique.
-
-```bash
-nmap google.com # Scanner google.com pour les ports ouverts 
-```

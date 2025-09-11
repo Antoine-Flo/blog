@@ -1,14 +1,14 @@
 ---
-title: "Python Essentials"
+title: "Les Essentiels de Python"
 published: 2025-09-04
 draft: false
 toc: true
-description: "Complete Python reference covering syntax, data structures, control flow, file handling, and core libraries—perfect for experienced developers switching to Python."
+description: "Référence complète Python couvrant la syntaxe, les structures de données, le contrôle de flux, la gestion de fichiers et les bibliothèques principales—parfait pour les développeurs expérimentés qui passent à Python."
 tags: ['python', 'programming', 'tutorial']
-series: 'Programming'
+series: 'Code'
 ---
 
-Python is a high-level, interpreted programming language. This guide covers essential concepts for developers transitioning to Python or seeking a comprehensive reference.
+Python est un langage de programmation de haut niveau et interprété. Ce guide couvre les concepts essentiels pour les développeurs qui migrent vers Python ou cherchent une référence complète.
 
 ## Installation
 
@@ -16,118 +16,118 @@ Python is a high-level, interpreted programming language. This guide covers esse
 ```bash
 sudo apt update
 sudo apt install python3 python3-pip
-python3 --version  # Verify installation
+python3 --version  # Vérifier l'installation
 ```
 
 ### macOS
 ```bash
-# Using Homebrew
+# Utiliser Homebrew
 brew install python
 
-# Or download from python.org
+# Ou télécharger depuis python.org
 ```
 
 ### Windows
-Download from [python.org](https://www.python.org/downloads/) or use Windows Store. Ensure "Add to PATH" is checked during installation.
+Téléchargez depuis [python.org](https://www.python.org/downloads/) ou utilisez le Windows Store. Assurez-vous de cocher "Ajouter au PATH" pendant l'installation.
 
 ```cmd
-python --version  # Verify installation
-pip --version     # Package manager
+python --version  # Vérifier l'installation
+pip --version     # Gestionnaire de paquets
 ```
 
-## Basic Syntax
+## Syntaxe de Base
 
-### Print Function
-Output data to the terminal with various formatting options.
+### Fonction Print
+Afficher des données dans le terminal avec diverses options de formatage.
 
 ```python
 print("Hello, World!")
 print("Value: ", 42)
 print("Multiple", "values", "separated")
 
-# Formatted output
+# Sortie formatée
 name, age = "Alice", 25
 print(f"Name: {name}, Age: {age}")
 print("Name: {}, Age: {}".format(name, age))
 
-# Control output behavior
+# Contrôler le comportement de sortie
 print("No newline", end="")
 print(" continues here")
-print("Item1", "Item2", sep=" | ")  # Custom separator
+print("Item1", "Item2", sep=" | ")  # Séparateur personnalisé
 ```
 
-### Comments
-Document code using single-line and multi-line comments.
+### Commentaires
+Documenter le code avec des commentaires sur une ligne ou multi-lignes.
 
 ```python
-# Single-line comment
-print("Hello, World!")  # Inline comment
+# Commentaire sur une ligne
+print("Hello, World!")  # Commentaire en ligne
 
 """
-Multi-line comment (docstring)
-Used for detailed explanations
-or function documentation
+Commentaire multi-lignes (docstring)
+Utilisé pour des explications détaillées
+ou la documentation de fonctions
 """
 
 '''
-Alternative multi-line syntax
-using single quotes
+Syntaxe multi-lignes alternative
+utilisant des guillemets simples
 '''
 ```
 
 ### Variables
-Dynamic typing allows variables to change types. No explicit declaration needed.
+Le typage dynamique permet aux variables de changer de type. Aucune déclaration explicite n'est nécessaire.
 
 ```python
-# Basic assignment
+# Assignation de base
 a = 5
 name = "Alice"
 
-# Multiple assignment
+# Assignation multiple
 b, c = 1, 2
 x = y = z = 0
 
-# Swapping variables
+# Échanger les variables
 a, b = b, a
 
-# Type changes allowed
+# Changements de type autorisés
 a = 5        # int
-a = "Hello"  # now string
-a = [1, 2]   # now list
+a = "Hello"  # maintenant string
+a = [1, 2]   # maintenant list
 
-# Constants (convention: uppercase)
+# Constantes (convention : majuscules)
 PI = 3.14159
 MAX_SIZE = 100
 ```
 
-### Data Types
-Python supports multiple built-in data types with automatic inference.
+### Types de Données
+Python prend en charge plusieurs types de données intégrés avec inférence automatique.
 
 ```python
-# Numeric types
+# Types numériques
 x = 5               # int
 y = 3.14            # float
-z = 2 + 3j          # complex number
+z = 2 + 3j          # nombre complexe
 
-# Boolean
+# Booléen
 is_valid = True     # bool (True/False)
 is_empty = False
 
-# Strings
+# Chaînes
 name = "Alice"      # str
 text = 'Single quotes work too'
 multiline = """Line one
 Line two
 Line three"""
 
-# None type
+# Type None
 value = None        # NoneType
 
-# Type checking and conversion
+# Vérification et conversion de type
 print(type(x))              # <class 'int'>
 print(isinstance(x, int))   # True
 
-# Type conversion
+# Conversion de type
 str(42)         # "42"
 int("42")       # 42
 float("3.14")   # 3.14
@@ -135,15 +135,15 @@ bool(1)         # True
 bool(0)         # False
 ```
 
-## Data Manipulation
+## Manipulation de Données
 
-### String Operations
-Comprehensive string manipulation with slicing, formatting, and methods.
+### Opérations sur les Chaînes
+Manipulation complète des chaînes avec découpage, formatage et méthodes.
 
 ```python
 text = "Hello World!"
 
-# Slicing [start:end:step]
+# Découpage [début:fin:pas]
 text[0:5]       # "Hello"
 text[6:]        # "World!"
 text[:5]        # "Hello"
@@ -151,61 +151,61 @@ text[-1]        # "!"
 text[-6:-1]     # "World"
 text[::2]       # "HloWrd"
 
-# String formatting
+# Formatage de chaînes
 name = "Alice"
 age = 30
 greeting = f"Hello, {name}. You are {age}."
 formatted = "Hello, {}. You are {}.".format(name, age)
 old_style = "Hello, %s. You are %d." % (name, age)
 
-# String methods
+# Méthodes de chaînes
 len(text)           # 12
 text.upper()        # "HELLO WORLD!"
 text.lower()        # "hello world!"
 text.title()        # "Hello World!"
-text.strip()        # Remove whitespace
+text.strip()        # Supprimer les espaces
 text.replace("World", "Python")  # "Hello Python!"
 
-# String testing
+# Test de chaînes
 text.startswith("Hello")  # True
 text.endswith("!")        # True
 text.isdigit()            # False
 "123".isdigit()           # True
 
-# Splitting and joining
+# Division et jointure
 words = text.split()             # ["Hello", "World!"]
 " ".join(words)                  # "Hello World!"
 "Hello,World,Python".split(",")  # ["Hello", "World", "Python"]
 
-# Alignment
+# Alignement
 text.ljust(15)      # "Hello World!   "
 text.rjust(15)      # "   Hello World!"
 text.center(15)     # " Hello World!  "
 ```
 
-### Numeric Operations
-Arithmetic operations and mathematical functions.
+### Opérations Numériques
+Opérations arithmétiques et fonctions mathématiques.
 
 ```python
 a, b = 10, 3
 
-# Basic arithmetic
+# Arithmétique de base
 c = a + b    # 13 Addition
-c = a - b    # 7  Subtraction
+c = a - b    # 7  Soustraction
 c = a * b    # 30 Multiplication
 c = a / b    # 3.333... Division (float)
-c = a // b   # 3  Floor division (int)
-c = a % b    # 1  Modulus (remainder)
+c = a // b   # 3  Division entière (int)
+c = a % b    # 1  Modulo (reste)
 c = a ** b   # 1000 Exponentiation
 
-# Compound assignment
+# Assignation composée
 c = 5
-c += 2       # c = c + 2, now 7
-c -= 1       # c = c - 1, now 6
-c *= 3       # c = c * 3, now 18
-c /= 2       # c = c / 2, now 9.0
+c += 2       # c = c + 2, maintenant 7
+c -= 1       # c = c - 1, maintenant 6
+c *= 3       # c = c * 3, maintenant 18
+c /= 2       # c = c / 2, maintenant 9.0
 
-# Built-in functions
+# Fonctions intégrées
 abs(-5)        # 5
 round(3.7)     # 4
 round(3.7, 1)  # 3.7
@@ -213,7 +213,7 @@ min(1, 2, 3)   # 1
 max(1, 2, 3)   # 3
 sum([1, 2, 3]) # 6
 
-# Math module
+# Module math
 import math
 math.sqrt(16)    # 4.0
 math.ceil(3.2)   # 4
@@ -221,83 +221,83 @@ math.floor(3.8)  # 3
 math.pi          # 3.141592653589793
 ```
 
-## Data Structures
+## Structures de Données
 
-### Lists
-Ordered, mutable collections supporting various data types.
+### Listes
+Collections ordonnées et modifiables supportant différents types de données.
 
 ```python
-# Creation
+# Création
 fruits = ["apple", "banana", "cherry"]
 mixed = [1, "apple", 3.14, True]
 numbers = list(range(5))        # [0, 1, 2, 3, 4]
 empty = []
 
-# Access and slicing
+# Accès et découpage
 first = fruits[0]               # "apple"
 last = fruits[-1]               # "cherry"
 subset = fruits[1:3]            # ["banana", "cherry"]
 
 # Modification
-fruits.append("orange")          # Add at end
-fruits.insert(1, "blueberry")    # Insert at index
-fruits.extend(["mango", "kiwi"]) # Add multiple items
+fruits.append("orange")          # Ajouter à la fin
+fruits.insert(1, "blueberry")    # Insérer à l'index
+fruits.extend(["mango", "kiwi"]) # Ajouter plusieurs éléments
 
-# Removal
-fruits.pop()                    # Remove and return last
-fruits.pop(1)                   # Remove at index
-fruits.remove("banana")         # Remove first occurrence
-del fruits[0]                   # Delete by index
+# Suppression
+fruits.pop()                    # Supprimer et retourner le dernier
+fruits.pop(1)                   # Supprimer à l'index
+fruits.remove("banana")         # Supprimer la première occurrence
+del fruits[0]                   # Supprimer par index
 
-# Properties and searching
-len(fruits)                     # Count items
-"apple" in fruits               # Check membership
-fruits.index("cherry")          # Find index
-fruits.count("apple")           # Count occurrences
+# Propriétés et recherche
+len(fruits)                     # Compter les éléments
+"apple" in fruits               # Vérifier l'appartenance
+fruits.index("cherry")          # Trouver l'index
+fruits.count("apple")           # Compter les occurrences
 
-# Sorting and reversing
+# Tri et inversion
 numbers = [3, 1, 4, 1, 5]
-numbers.sort()                  # [1, 1, 3, 4, 5] (in-place)
-sorted(numbers, reverse=True)   # [5, 4, 3, 1, 1] (new list)
-numbers.reverse()               # Reverse in-place
+numbers.sort()                  # [1, 1, 3, 4, 5] (sur place)
+sorted(numbers, reverse=True)   # [5, 4, 3, 1, 1] (nouvelle liste)
+numbers.reverse()               # Inverser sur place
 
-# List comprehensions
+# Compréhensions de listes
 squares = [x**2 for x in range(5)]            # [0, 1, 4, 9, 16]
 evens = [x for x in range(10) if x % 2 == 0]  # [0, 2, 4, 6, 8]
 ```
 
 ### Tuples
-Immutable ordered collections ideal for fixed data sets.
+Collections ordonnées et immuables idéales pour des jeux de données fixes.
 
 ```python
-# Creation
+# Création
 coordinates = (10.0, 20.0)
-point = 1, 2, 3              # Parentheses optional
-single = (42,)               # Single item needs comma
+point = 1, 2, 3              # Parenthèses optionnelles
+single = (42,)               # Élément unique nécessite une virgule
 empty = ()
 
-# Access (like lists)
+# Accès (comme les listes)
 x = coordinates[0]           # 10.0
 y = coordinates[1]           # 20.0
 
-# Unpacking
+# Déballage
 x, y = coordinates           # x=10.0, y=20.0
 first, *rest = (1, 2, 3, 4)  # first=1, rest=[2, 3, 4]
 
-# Properties
+# Propriétés
 len(coordinates)             # 2
 2 in (1, 2, 3)               # True
 
-# Use cases
-rgb = (255, 128, 0)                 # Color values
-person = ("Alice", 25, "Engineer")  # Record-like data
+# Cas d'utilisation
+rgb = (255, 128, 0)                 # Valeurs de couleur
+person = ("Alice", 25, "Engineer")  # Données de type enregistrement
 ```
 
-### Dictionaries
-Key-value pairs for mapping relationships and structured data.
+### Dictionnaires
+Paires clé-valeur pour mapper des relations et structurer les données.
 
 ```python
-# Creation
+# Création
 person = {
     "name": "Alice",
     "age": 30,
@@ -306,42 +306,42 @@ person = {
 empty = {}
 from_keys = dict.fromkeys(["a", "b"], 0)  # {"a": 0, "b": 0}
 
-# Access and modification
+# Accès et modification
 name = person["name"]           # "Alice"
-age = person.get("age", 0)      # 30 (with default)
-person["job"] = "Engineer"      # Add new key
-person["age"] = 31              # Update existing
+age = person.get("age", 0)      # 30 (avec défaut)
+person["job"] = "Engineer"      # Ajouter nouvelle clé
+person["age"] = 31              # Mettre à jour existant
 
-# Methods
+# Méthodes
 keys = person.keys()            # dict_keys(['name', 'age', 'city', 'job'])
 values = person.values()        # dict_values(['Alice', 31, 'Wonderland', 'Engineer'])
-items = person.items()          # Key-value pairs
+items = person.items()          # Paires clé-valeur
 
-# Membership and removal
+# Appartenance et suppression
 "name" in person                   # True
-del person["city"]                 # Remove key
-removed = person.pop("job", None)  # Remove and return
+del person["city"]                 # Supprimer clé
+removed = person.pop("job", None)  # Supprimer et retourner
 
-# Dictionary comprehensions
+# Compréhensions de dictionnaires
 squares = {x: x**2 for x in range(5)}  # {0: 0, 1: 1, 2: 4, 3: 9, 4: 16}
 filtered = {k: v for k, v in person.items() if len(str(v)) > 3}
 ```
 
-### Sets
-Unordered collections of unique elements.
+### Ensembles (Sets)
+Collections non ordonnées d'éléments uniques.
 
 ```python
-# Creation
+# Création
 colors = {"red", "green", "blue"}
-numbers = set([1, 2, 2, 3, 3])     # {1, 2, 3} - duplicates removed
-empty = set()                      # {} creates dict, not set
+numbers = set([1, 2, 2, 3, 3])     # {1, 2, 3} - doublons supprimés
+empty = set()                      # {} crée un dict, pas un set
 
-# Operations
-colors.add("yellow")               # Add element
-colors.remove("red")               # Remove (raises error if not found)
-colors.discard("purple")           # Remove (no error if not found)
+# Opérations
+colors.add("yellow")               # Ajouter élément
+colors.remove("red")               # Supprimer (erreur si non trouvé)
+colors.discard("purple")           # Supprimer (pas d'erreur si non trouvé)
 
-# Set operations
+# Opérations d'ensembles
 set1 = {1, 2, 3}
 set2 = {3, 4, 5}
 union = set1 | set2                # {1, 2, 3, 4, 5}
@@ -349,20 +349,20 @@ intersection = set1 & set2         # {3}
 difference = set1 - set2           # {1, 2}
 symmetric_diff = set1 ^ set2       # {1, 2, 4, 5}
 
-# Membership testing (very fast)
+# Test d'appartenance (très rapide)
 3 in colors                        # True
-colors.issubset({1, 2, 3, 4})      # Check if subset
+colors.issubset({1, 2, 3, 4})      # Vérifier si sous-ensemble
 ```
 
-## Control Structures
+## Structures de Contrôle
 
-### Conditional Statements
-Execute code based on boolean conditions with if/elif/else.
+### Instructions Conditionnelles
+Exécuter du code basé sur des conditions booléennes avec if/elif/else.
 
 ```python
 x = 10
 
-# Basic conditionals
+# Conditionnelles de base
 if x > 0:
     print("Positive")
 elif x < 0:
@@ -370,138 +370,138 @@ elif x < 0:
 else:
     print("Zero")
 
-# Comparison operators
-x == 5      # Equal
-x != 5      # Not equal
-x > 5       # Greater than
-x >= 5      # Greater than or equal
-x < 5       # Less than
-x <= 5      # Less than or equal
+# Opérateurs de comparaison
+x == 5      # Égal
+x != 5      # Différent
+x > 5       # Supérieur à
+x >= 5      # Supérieur ou égal à
+x < 5       # Inférieur à
+x <= 5      # Inférieur ou égal à
 
-# Ternary operator (inline if)
+# Opérateur ternaire (if en ligne)
 status = "positive" if x > 0 else "non-positive"
 
-# Multiple conditions
-if 0 < x < 100:             # Chained comparisons
+# Conditions multiples
+if 0 < x < 100:             # Comparaisons en chaîne
     print("Between 0 and 100")
 
-# Truthy/Falsy values
-if []:          # False (empty list)
-if "":          # False (empty string)
-if 0:           # False (zero)
+# Valeurs vraies/fausses
+if []:          # False (liste vide)
+if "":          # False (chaîne vide)
+if 0:           # False (zéro)
 if None:        # False
-if [1, 2]:      # True (non-empty list)
+if [1, 2]:      # True (liste non vide)
 ```
 
-### Logical Operators
-Combine multiple conditions with and, or, not.
+### Opérateurs Logiques
+Combiner plusieurs conditions avec and, or, not.
 
 ```python
 x, y = 5, -3
 
-# Basic logical operators
-x > 0 and y > 0         # False (both must be True)
-x > 0 or y > 0          # True (at least one is True)
-not x > 0               # False (negation)
+# Opérateurs logiques de base
+x > 0 and y > 0         # False (les deux doivent être True)
+x > 0 or y > 0          # True (au moins un doit être True)
+not x > 0               # False (négation)
 
-# Short-circuit evaluation
-x > 0 and expensive_function()  # expensive_function only called if x > 0
+# Évaluation en court-circuit
+x > 0 and expensive_function()  # expensive_function appelée seulement si x > 0
 
-# Complex conditions
+# Conditions complexes
 if (x > 0 and y > 0) or (x < 0 and y < 0):
     print("Same sign")
 
-# Identity and membership operators
-x is None                       # Identity check
+# Opérateurs d'identité et d'appartenance
+x is None                       # Vérification d'identité
 x is not None
-"apple" in ["apple", "banana"]  # Membership
+"apple" in ["apple", "banana"]  # Appartenance
 "grape" not in ["apple", "banana"]
 ```
 
-### Loops
-Iterate over sequences and repeat code execution.
+### Boucles
+Itérer sur des séquences et répéter l'exécution de code.
 
 ```python
-# For loops with range
+# Boucles for avec range
 for i in range(5):              # 0, 1, 2, 3, 4
     print(i)
 
-for i in range(2, 8, 2):        # 2, 4, 6 (start, stop, step)
+for i in range(2, 8, 2):        # 2, 4, 6 (début, fin, pas)
     print(i)
 
-# For loops with sequences
+# Boucles for avec séquences
 fruits = ["apple", "banana", "cherry"]
 for fruit in fruits:
     print(fruit)
 
-# Enumerate for index and value
+# Enumerate pour index et valeur
 for index, fruit in enumerate(fruits):
     print(f"{index}: {fruit}")
 
-# Loop control
+# Contrôle de boucle
 for i in range(10):
     if i == 3:
-        continue            # Skip to next iteration
+        continue            # Passer à l'itération suivante
     if i == 7:
-        break               # Exit loop
+        break               # Sortir de la boucle
     print(i)
-# Output: 0 1 2 4 5 6
+# Sortie: 0 1 2 4 5 6
 
-# Unpacking in loops
+# Déballage dans les boucles
 pairs = [(1, 'a'), (2, 'b'), (3, 'c')]
 for number, letter in pairs:
     print(f"{number}: {letter}")
 
-# While loops
+# Boucles while
 count = 0
 while count < 5:
     print(count)
     count += 1
 
-# Else clause (executes if loop completes without break)
+# Clause else (exécutée si la boucle se termine sans break)
 for i in range(3):
     print(i)
 else:
     print("Loop completed")
 
-# Nested loops
+# Boucles imbriquées
 for i in range(3):
     for j in range(2):
         print(f"({i}, {j})")
 ```
 
-### Functions
-Reusable code blocks with parameters and return values.
+### Fonctions
+Blocs de code réutilisables avec paramètres et valeurs de retour.
 
 ```python
-# Basic function
+# Fonction de base
 def greet(name):
     return f"Hello, {name}!"
 
-# Default parameters
+# Paramètres par défaut
 def power(base, exponent = 2):
     return base ** exponent
 
-# Keyword arguments
+# Arguments nommés
 def describe_pet(name, animal_type="dog"):
     print(f"Pet: {name} ({animal_type})")
 
-describe_pet("Max")                             # Uses default
-describe_pet(animal_type="cat", name="Fluffy")  # Keyword order
+describe_pet("Max")                             # Utilise la valeur par défaut
+describe_pet(animal_type="cat", name="Fluffy")  # Ordre des mots-clés
 
-# Variable arguments
-def sum_all(*args):             # Tuple of arguments
+# Arguments variables
+def sum_all(*args):             # Tuple d'arguments
     return sum(args)
 
 sum_all(1, 2, 3, 4)            # 10
 
-def print_info(**kwargs):       # Dictionary of keyword arguments
+def print_info(**kwargs):       # Dictionnaire d'arguments nommés
     for key, value in kwargs.items():
         print(f"{key}: {value}")
 
 print_info(name="Alice", age=30, city="Paris")
 
-# Lambda functions (anonymous)
+# Fonctions lambda (anonymes)
 square = lambda x: x ** 2
 add = lambda x, y: x + y
 numbers = [1, 2, 3, 4, 5]
@@ -509,25 +509,25 @@ squared = list(map(square, numbers))        # [1, 4, 9, 16, 25]
 evens = list(filter(lambda x: x % 2 == 0, numbers))  # [2, 4]
 
 # Docstrings*
-# They are used to describe the function and its parameters.
+# Elles sont utilisées pour décrire la fonction et ses paramètres.
 def calculate_area(radius):
     """
-    Calculate the area of a circle.
+    Calculer l'aire d'un cercle.
     
     Args:
-        radius (float): The radius of the circle
+        radius (float): Le rayon du cercle
         
     Returns:
-        float: The area of the circle
+        float: L'aire du cercle
     """
     return 3.14159 * radius ** 2
 ```
 
-### Exception Handling
-Handle errors gracefully with try/except blocks.
+### Gestion d'Exceptions
+Gérer les erreurs élégamment avec les blocs try/except.
 
 ```python
-# Basic exception handling
+# Gestion d'exceptions de base
 try:
     result = 10 / 0
 except ZeroDivisionError:
@@ -535,7 +535,7 @@ except ZeroDivisionError:
 finally:
     print("Finally block always executed")
 
-# Multiple exception types
+# Plusieurs types d'exceptions
 try:
     value = int(input("Enter a number: "))
     result = 10 / value
@@ -544,7 +544,7 @@ except ValueError:
 except ZeroDivisionError:
     print("Cannot divide by zero")
 
-# Catching multiple exceptions
+# Capturer plusieurs exceptions
 try:
     with open('file.txt', 'r') as file:
         data = file.read()
@@ -552,13 +552,13 @@ try:
 except (FileNotFoundError, ValueError) as e:
     print(f"Error: {e}")
 
-# Generic exception handler
+# Gestionnaire d'exceptions générique
 try:
     risky_operation()
 except Exception as e:
     print(f"Unexpected error: {e}")
 
-# Else block (executes if no exception)
+# Bloc else (exécuté s'il n'y a pas d'exception)
 try:
     result = 10 / 2
 except ZeroDivisionError:
@@ -566,28 +566,28 @@ except ZeroDivisionError:
 else:
     print(f"Success: {result}")
 
-# Raising exceptions
+# Lever des exceptions
 def validate_age(age):
     if age < 0:
         raise ValueError("Age cannot be negative")
     return age
 ```
 
-### Context Managers (with statement)
-Automatic resource management ensuring proper cleanup.
+### Gestionnaires de Contexte (instruction with)
+Gestion automatique des ressources assurant un nettoyage approprié.
 
 ```python
-# File handling with automatic closing
+# Gestion de fichiers avec fermeture automatique
 with open('file.txt', 'r') as file:
     content = file.read()
-    # File automatically closed when exiting block
+    # Fichier automatiquement fermé en sortant du bloc
 
-# Multiple files
+# Fichiers multiples
 with open('input.txt', 'r') as infile, open('output.txt', 'w') as outfile:
     data = infile.read()
     outfile.write(data.upper())
 
-# Custom context manager
+# Gestionnaire de contexte personnalisé
 from contextlib import contextmanager
 
 @contextmanager
@@ -602,29 +602,29 @@ def timer():
         print(f"Elapsed: {end - start:.2f}s")
 
 with timer():
-    # Some time-consuming operation
+    # Opération qui prend du temps
     time.sleep(1)
 ```
 
-## Object-Oriented Programming
+## Programmation Orientée Objet
 
-### Classes and Objects
-Define custom data types with attributes and methods.
+### Classes et Objets
+Définir des types de données personnalisés avec attributs et méthodes.
 
 ```python
-# Basic class
+# Classe de base
 class Person:
-    def __init__(self, name, age):      # Constructor
-        self.name = name                # Instance attribute
+    def __init__(self, name, age):      # Constructeur
+        self.name = name                # Attribut d'instance
         self.age = age
     
-    def greet(self):                    # Instance method
+    def greet(self):                    # Méthode d'instance
         return f"Hello, I'm {self.name}"
     
     def have_birthday(self):
         self.age += 1
 
-# Creating objects
+# Créer des objets
 person1 = Person("Alice", 30)
 person2 = Person("Bob", 25)
 
@@ -632,9 +632,9 @@ print(person1.greet())                  # "Hello, I'm Alice"
 person1.have_birthday()
 print(person1.age)                      # 31
 
-# Class attributes and methods
+# Attributs et méthodes de classe
 class Circle:
-    pi = 3.14159                        # Class attribute
+    pi = 3.14159                        # Attribut de classe
     
     def __init__(self, radius):
         self.radius = radius
@@ -643,44 +643,44 @@ class Circle:
         return Circle.pi * self.radius ** 2
     
     @classmethod
-    def from_diameter(cls, diameter):   # Alternative constructor
+    def from_diameter(cls, diameter):   # Constructeur alternatif
         return cls(diameter / 2)
     
     @staticmethod
-    def is_valid_radius(radius):        # Utility method
+    def is_valid_radius(radius):        # Méthode utilitaire
         return radius > 0
 
-# Inheritance
-class Employee(Person):                 # Inherits from Person
+# Héritage
+class Employee(Person):                 # Hérite de Person
     def __init__(self, name, age, job_title):
-        super().__init__(name, age)     # Call parent constructor
+        super().__init__(name, age)     # Appeler le constructeur parent
         self.job_title = job_title
     
-    def greet(self):                    # Method overriding
+    def greet(self):                    # Redéfinition de méthode
         return f"Hello, I'm {self.name}, a {self.job_title}"
 
 employee = Employee("Charlie", 35, "Developer")
 print(employee.greet())                 # "Hello, I'm Charlie, a Developer"
 ```
 
-## File Operations
+## Opérations sur les Fichiers
 
-### Reading and Writing Files
-Handle file input/output operations safely.
+### Lecture et Écriture de Fichiers
+Gérer les opérations d'entrée/sortie de fichiers en toute sécurité.
 
 ```python
-# Reading files
+# Lecture de fichiers
 with open('data.txt', 'r') as file:
-    content = file.read()               # Read entire file
+    content = file.read()               # Lire tout le fichier
     
 with open('data.txt', 'r') as file:
-    lines = file.readlines()            # List of lines
+    lines = file.readlines()            # Liste de lignes
     
 with open('data.txt', 'r') as file:
-    for line in file:                   # Iterate line by line
+    for line in file:                   # Itérer ligne par ligne
         print(line.strip())
 
-# Writing files
+# Écriture de fichiers
 with open('output.txt', 'w') as file:
     file.write("Hello, World!")
     
@@ -688,192 +688,192 @@ data = ["line1", "line2", "line3"]
 with open('output.txt', 'w') as file:
     file.writelines(f"{line}\n" for line in data)
 
-# File modes
-# 'r' - read (default)
-# 'w' - write (overwrites)
-# 'a' - append
-# 'x' - exclusive creation
-# 'b' - binary mode
-# 't' - text mode (default)
+# Modes de fichiers
+# 'r' - lecture (par défaut)
+# 'w' - écriture (écrase)
+# 'a' - ajout
+# 'x' - création exclusive
+# 'b' - mode binaire
+# 't' - mode texte (par défaut)
 
-# Working with paths
+# Travailler avec les chemins
 import os
 from pathlib import Path
 
-# Using os module
+# Utiliser le module os
 current_dir = os.getcwd()
 file_path = os.path.join(current_dir, 'data', 'file.txt')
 if os.path.exists(file_path):
     os.remove(file_path)
 
-# Using pathlib (modern approach)
+# Utiliser pathlib (approche moderne)
 path = Path('data') / 'file.txt'
 if path.exists():
     content = path.read_text()
-    path.unlink()                       # Delete file
+    path.unlink()                       # Supprimer le fichier
 ```
 
-## Virtual Environments
-Isolate project dependencies to avoid conflicts.
+## Environnements Virtuels
+Isoler les dépendances de projet pour éviter les conflits.
 
 ```bash
-# Create virtual environment
+# Créer un environnement virtuel
 python -m venv myenv
 
-# Activate environment
+# Activer l'environnement
 # Linux/macOS:
 source myenv/bin/activate
 # Windows:
 myenv\Scripts\activate
 
-# Install packages
+# Installer des paquets
 pip install requests numpy
 
-# Save dependencies
+# Sauvegarder les dépendances
 pip freeze > requirements.txt
 
-# Install from requirements
+# Installer depuis requirements
 pip install -r requirements.txt
 
-# Deactivate environment
+# Désactiver l'environnement
 deactivate
 ```
 
-## Standard Library
-Essential modules included with Python for common tasks.
+## Bibliothèque Standard
+Modules essentiels inclus avec Python pour les tâches courantes.
 
-### sys - System Interface
+### sys - Interface Système
 ```python
 import sys
 
-# System information
+# Informations système
 sys.platform            # 'linux', 'win32', 'darwin'
-sys.version             # Python version info
-sys.version_info        # Named tuple with version parts
+sys.version             # Informations de version Python
+sys.version_info        # Tuple nommé avec parties de version
 
-# Program control
-sys.exit(0)             # Exit with status code
-sys.argv                # Command line arguments list
+# Contrôle du programme
+sys.exit(0)             # Sortir avec code de statut
+sys.argv                # Liste des arguments de ligne de commande
 
-# Input/Output streams
+# Flux d'entrée/sortie
 print("Error!", file=sys.stderr)
 sys.stdout.write("Direct output\n")
 
-# Path manipulation
+# Manipulation des chemins
 sys.path.append('/custom/module/path')
 ```
 
-### os - Operating System Interface
+### os - Interface Système d'Exploitation
 ```python
 import os
 
-# Directory operations
-os.getcwd()                     # Current working directory
-os.chdir('/path/to/directory')  # Change directory
-os.listdir('.')                 # List directory contents
-os.makedirs('path/to/dir', exist_ok=True)  # Create directories
+# Opérations de répertoire
+os.getcwd()                     # Répertoire de travail actuel
+os.chdir('/path/to/directory')  # Changer de répertoire
+os.listdir('.')                 # Lister le contenu du répertoire
+os.makedirs('path/to/dir', exist_ok=True)  # Créer des répertoires
 
-# File operations
+# Opérations de fichiers
 os.rename('old.txt', 'new.txt')
-os.remove('file.txt')           # Delete file
-os.path.exists('file.txt')      # Check if path exists
-os.path.isfile('file.txt')      # Check if it's a file
-os.path.isdir('directory')      # Check if it's a directory
+os.remove('file.txt')           # Supprimer le fichier
+os.path.exists('file.txt')      # Vérifier si le chemin existe
+os.path.isfile('file.txt')      # Vérifier si c'est un fichier
+os.path.isdir('directory')      # Vérifier si c'est un répertoire
 
-# Environment variables
+# Variables d'environnement
 home = os.environ.get('HOME', '/tmp')
 os.environ['CUSTOM_VAR'] = 'value'
 ```
 
-### subprocess - Process Management
+### subprocess - Gestion des Processus
 ```python
 import subprocess
 
-# Run commands
+# Exécuter des commandes
 result = subprocess.run(['ls', '-l'], capture_output=True, text=True)
 if result.returncode == 0:
     print(result.stdout)
 else:
     print("Error:", result.stderr)
 
-# Run with shell
+# Exécuter avec le shell
 subprocess.run('echo "Hello" > output.txt', shell=True)
 
-# Different execution methods
-subprocess.call(['python', 'script.py'])           # Wait for completion
-subprocess.Popen(['python', 'server.py'])          # Non-blocking
+# Différentes méthodes d'exécution
+subprocess.call(['python', 'script.py'])           # Attendre la fin
+subprocess.Popen(['python', 'server.py'])          # Non bloquant
 ```
 
-### pathlib - Modern Path Handling
+### pathlib - Gestion Moderne des Chemins
 ```python
 from pathlib import Path
 
-# Path creation and manipulation
+# Création et manipulation de chemins
 path = Path('data') / 'files' / 'document.txt'
-path.mkdir(parents=True, exist_ok=True)     # Create directories
+path.mkdir(parents=True, exist_ok=True)     # Créer des répertoires
 
-# File operations
+# Opérations de fichiers
 path.write_text('Hello, World!')
 content = path.read_text()
-path.unlink()                               # Delete file
+path.unlink()                               # Supprimer le fichier
 
-# Path properties
+# Propriétés de chemin
 path.name           # 'document.txt'
 path.stem           # 'document'
 path.suffix         # '.txt'
 path.parent         # Path('data/files')
 ```
 
-### datetime - Date and Time
+### datetime - Date et Heure
 ```python
 from datetime import datetime, date, timedelta
 
-# Current date and time
+# Date et heure actuelles
 now = datetime.now()
 today = date.today()
 
-# Formatting
+# Formatage
 formatted = now.strftime('%Y-%m-%d %H:%M:%S')
 parsed = datetime.strptime('2023-12-25', '%Y-%m-%d')
 
-# Arithmetic
+# Arithmétique
 tomorrow = today + timedelta(days=1)
 week_ago = now - timedelta(weeks=1)
 ```
 
-### json - JSON Processing
+### json - Traitement JSON
 ```python
 import json
 
-# Python to JSON
+# Python vers JSON
 data = {'name': 'Alice', 'age': 30}
 json_string = json.dumps(data)
 with open('data.json', 'w') as f:
     json.dump(data, f, indent=2)
 
-# JSON to Python
+# JSON vers Python
 parsed_data = json.loads(json_string)
 with open('data.json', 'r') as f:
     loaded_data = json.load(f)
 ```
 
-### random - Random Numbers
+### random - Nombres Aléatoires
 ```python
 import random
 
-random.randint(1, 10)           # Random integer between 1 and 10
-random.random()                 # Random float between 0 and 1
-random.choice(['a', 'b', 'c'])  # Random choice from sequence
-random.shuffle([1, 2, 3, 4])    # Shuffle list in place
+random.randint(1, 10)           # Entier aléatoire entre 1 et 10
+random.random()                 # Float aléatoire entre 0 et 1
+random.choice(['a', 'b', 'c'])  # Choix aléatoire dans une séquence
+random.shuffle([1, 2, 3, 4])    # Mélanger la liste sur place
 
-# Random sampling
-random.sample([1, 2, 3, 4, 5], 3)  # Sample 3 items without replacement
+# Échantillonnage aléatoire
+random.sample([1, 2, 3, 4, 5], 3)  # Échantillon de 3 éléments sans remplacement
 ```
 
-## External Libraries
-Popular third-party packages extending Python's capabilities.
+## Bibliothèques Externes
+Packages tiers populaires étendant les capacités de Python.
 
-### requests - HTTP Library
+### requests - Bibliothèque HTTP
 ```bash
 pip install requests
 ```
@@ -881,23 +881,23 @@ pip install requests
 ```python
 import requests
 
-# GET request
+# Requête GET
 response = requests.get('https://api.github.com/users/octocat')
 data = response.json()
 print(response.status_code)     # 200
 
-# POST request
+# Requête POST
 payload = {'key': 'value'}
 response = requests.post('https://httpbin.org/post', json=payload)
 
-# With headers and parameters
+# Avec headers et paramètres
 headers = {'Authorization': 'Bearer token'}
 params = {'page': 1, 'per_page': 10}
 response = requests.get('https://api.example.com/data', 
                        headers=headers, params=params)
 ```
 
-### numpy - Numerical Computing
+### numpy - Calcul Numérique
 ```bash
 pip install numpy
 ```
@@ -905,22 +905,22 @@ pip install numpy
 ```python
 import numpy as np
 
-# Array creation
+# Création de tableaux
 arr = np.array([1, 2, 3, 4, 5])
 matrix = np.array([[1, 2], [3, 4]])
 zeros = np.zeros((3, 3))
 ones = np.ones((2, 4))
 range_arr = np.arange(0, 10, 2)     # [0, 2, 4, 6, 8]
 
-# Array operations
-arr * 2                             # Element-wise multiplication
-arr + 10                            # Element-wise addition
-np.sum(arr)                         # Sum all elements
-np.mean(arr)                        # Average
-np.max(arr)                         # Maximum value
+# Opérations sur les tableaux
+arr * 2                             # Multiplication élément par élément
+arr + 10                            # Addition élément par élément
+np.sum(arr)                         # Somme de tous les éléments
+np.mean(arr)                        # Moyenne
+np.max(arr)                         # Valeur maximale
 ```
 
-### pandas - Data Analysis
+### pandas - Analyse de Données
 ```bash
 pip install pandas
 ```
@@ -928,24 +928,24 @@ pip install pandas
 ```python
 import pandas as pd
 
-# DataFrame creation
+# Création de DataFrame
 data = {'name': ['Alice', 'Bob', 'Charlie'],
         'age': [25, 30, 35],
         'city': ['New York', 'London', 'Tokyo']}
 df = pd.DataFrame(data)
 
-# Data operations
-df.head()                           # First 5 rows
-df.describe()                       # Statistical summary
-df[df['age'] > 30]                  # Filter rows
-df.groupby('city').mean()           # Group by city
+# Opérations sur les données
+df.head()                           # 5 premières lignes
+df.describe()                       # Résumé statistique
+df[df['age'] > 30]                  # Filtrer les lignes
+df.groupby('city').mean()           # Grouper par ville
 
-# File operations
+# Opérations de fichiers
 df.to_csv('data.csv', index=False)
 df_loaded = pd.read_csv('data.csv')
 ```
 
-### matplotlib - Plotting
+### matplotlib - Graphiques
 ```bash
 pip install matplotlib
 ```
@@ -953,7 +953,7 @@ pip install matplotlib
 ```python
 import matplotlib.pyplot as plt
 
-# Simple plot
+# Graphique simple
 x = [1, 2, 3, 4, 5]
 y = [2, 4, 6, 8, 10]
 plt.plot(x, y)
@@ -962,7 +962,7 @@ plt.ylabel('Y values')
 plt.title('Simple Line Plot')
 plt.show()
 
-# Multiple plots
+# Graphiques multiples
 plt.subplot(2, 1, 1)
 plt.plot(x, y)
 plt.subplot(2, 1, 2)
@@ -970,7 +970,7 @@ plt.bar(x, y)
 plt.show()
 ```
 
-### psutil - System Information
+### psutil - Informations Système
 ```bash
 pip install psutil
 ```
@@ -978,12 +978,12 @@ pip install psutil
 ```python
 import psutil
 
-# System monitoring
-psutil.cpu_percent(interval=1)      # CPU usage
-psutil.virtual_memory().percent     # Memory usage
-psutil.disk_usage('/').percent      # Disk usage
+# Surveillance système
+psutil.cpu_percent(interval=1)      # Utilisation CPU
+psutil.virtual_memory().percent     # Utilisation mémoire
+psutil.disk_usage('/').percent      # Utilisation disque
 
-# Process information
+# Informations des processus
 for proc in psutil.process_iter(['pid', 'name', 'cpu_percent']):
     if proc.info['cpu_percent'] > 1.0:
         print(proc.info)

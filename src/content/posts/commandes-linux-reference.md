@@ -1,9 +1,9 @@
 ---
-title: "Les commandes Linux essentielles"
+title: "Les commandes"
 published: 2025-09-01
 draft: false
 toc: true
-description: "Une compilation des commandes Linux les plus importantes, de la gestion de fichiers au contrôle des processus."
+description: "Une compilation de commandes Linux préinstallées sur la plupart des systèmes. Pour la gestion des fichiers, la manipulation de texte, les opérations système, et plus encore."
 series: 'Linux'
 tags: ['cli', 'bash']
 ---
@@ -114,7 +114,6 @@ echo "Hi mom !"                      # afficher du texte simple
 echo "Hello $USER"                   # afficher avec une variable
 echo -n "No newline"                 # afficher sans nouvelle ligne à la fin
 echo "Line 1\nLine 2"                # afficher avec des caractères de nouvelle ligne
-
 ```
 
 ### cat
@@ -267,29 +266,6 @@ history | grep "git"                 # rechercher les commandes git dans l'histo
 !!                                   # ré-exécuter la dernière commande
 ```
 
-### ip a
-Trouver les informations d'interface réseau incluant les adresses IP. Vérifier votre configuration réseau.
-
-```bash
-ip a                                 # afficher toutes les interfaces réseau
-ip addr show                         # syntaxe alternative
-ip a show eth0                       # afficher une interface spécifique
-ip route                             # afficher la table de routage
-```
-
-
-### curl
-Effectuer des requêtes HTTP vers des serveurs web. Télécharger du contenu, tester des API, ou vérifier le statut de sites web.
-
-```bash
-curl www.google.com                            # obtenir le contenu d'une page web
-curl -I www.google.com                         # obtenir seulement les en-têtes
-curl -o page.html www.example.com              # sauvegarder la réponse dans un fichier
-curl -X POST -d "data=value" api.com           # envoyer une requête POST avec des données
-curl -s https://api.github.com/users/octocat   # mode silencieux (pas de progression)
-
-```
-
 ## Redirections
 
 ### >
@@ -332,7 +308,7 @@ ls *.txt | xargs -I {} cp {} backup/    # copier chaque fichier vers le dossier 
 cat filelist.txt | xargs grep "error"   # rechercher "error" dans les fichiers listés
 ```
 
-## Caractères génériques
+## Globbing
 ### *
 Correspondre à zéro ou plusieurs caractères. Sélectionner plusieurs fichiers avec la correspondance de motifs.
 
@@ -359,6 +335,65 @@ ls file[1-5].txt                     # correspondre à file1.txt jusqu'à file5.
 rm log[ABC].txt                      # supprimer logA.txt, logB.txt, logC.txt
 cp data[0-9][0-9].csv archive/       # correspondre à data01.csv, data99.csv, etc.
 ls [a-z]*.txt                        # fichiers commençant par une lettre minuscule
+```
+
+## Réseau
+
+### ping
+La commande `ping` est utilisée pour tester l'accessibilité d'un hôte sur un réseau IP. 
+
+```bash
+ping 8.8.8.8  # Ping du serveur DNS public de Google
+ping example.com  # Ping d'un nom de domaine
+```
+
+### ip
+La commande `ip` est utilisée pour afficher et manipuler le routage, les appareils, le routage de politique, et les tunnels.
+
+```bash
+ip a                  # Affiche toutes les interfaces réseau avec leurs adresses IP
+ip route show         # Afficher la table de routage  
+```
+
+### traceroute
+La commande `traceroute` est utilisée pour tracer le chemin que prennent les paquets de votre ordinateur vers un hôte de destination.
+
+```bash
+traceroute example.com  # Tracer la route vers example.com
+```
+
+### dhclient
+La commande `dhclient` est un client DHCP qui est utilisé pour obtenir une adresse IP et d'autres paramètres de configuration réseau d'un serveur DHCP.
+
+```bash
+sudo dhclient -v # Demander une adresse IP avec sortie détaillée
+```
+
+### nmap
+La commande `nmap` est un outil de scan réseau utilisé pour découvrir des hôtes et services sur un réseau informatique.
+
+```bash
+nmap google.com # Scanner google.com pour les ports ouverts 
+```
+
+### curl
+Effectuer des requêtes HTTP vers des serveurs web. Télécharger du contenu, tester des API, ou vérifier le statut de sites web.
+
+```bash
+curl www.google.com                            # obtenir le contenu d'une page web
+curl -I www.google.com                         # obtenir seulement les en-têtes
+curl -o page.html www.example.com              # sauvegarder la réponse dans un fichier
+curl -X POST -d "data=value" api.com           # envoyer une requête POST avec des données
+curl -s https://api.github.com/users/octocat   # mode silencieux (pas de progression)
+```
+
+### dig
+Effectuer des requêtes DNS pour obtenir des informations sur les domaines.
+
+```bash
+dig example.com              # obtenir les enregistrements A
+dig example.com MX           # obtenir les enregistrements MX
+dig example.com ANY          # obtenir tous les enregistrements
 ```
 
 ## Utilitaires
@@ -403,15 +438,6 @@ Vérifier la taille d'un dossier
 
 ```bash
 du -sh /folder
-```
-
-### dig
-Effectuer des requêtes DNS pour obtenir des informations sur les domaines.
-
-```bash
-dig example.com              # obtenir les enregistrements A
-dig example.com MX           # obtenir les enregistrements MX
-dig example.com ANY          # obtenir tous les enregistrements
 ```
 
 ## Manipulation de chemins

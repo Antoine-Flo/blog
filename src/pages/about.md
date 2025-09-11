@@ -1,15 +1,15 @@
 ---
 layout: '~/layouts/MarkdownLayout.astro'
-title: About Me
+title: À propos
 showAvatar: true
 ---
 
-Hey! I'm Antoine, a french backend developer transitioning to cloud engineering.
+Salut ! Je suis Antoine Flouzat, développeur backend en transition vers le DevOps.
 
-Based in Lyon, I've spent 3 years building APIs and backend systems with Node.js/TypeScript. Now I'm diving deep into cloud infrastructure - AWS, Kubernetes, Terraform - preparing for my next chapter as a DevOps Engineer.
+Basé à Lyon, j'ai passé 3 ans à construire des API et des systèmes backend avec Node.js et TypeScript. Maintenant, je plonge dans l'infrastructure cloud - AWS, Kubernetes, Terraform - me préparant pour mon prochain chapitre en tant qu'ingénieur DevOps.
 
-I love automating things, experimenting with new tech, and making systems more robust. When I'm not coding, you'll find me traveling, listening to music, developing games, or advocating for a free and accessible internet.
+Si je ne code pas, vous me trouverez en train de voyager, d'écouter de la musique, de développer des jeux ou de militer pour un internet libre et accessible.
 
-Always curious, always learning. 
+Toujours curieux, toujours en train d'apprendre.
 
-Feel free to reach out. Cheers!
+N'hésitez pas à me contacter. À bientôt !

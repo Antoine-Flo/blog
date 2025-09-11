@@ -1,5 +1,5 @@
 ---
-title: "Les permissions de fichiers Linux"
+title: "Les droits"
 published: 2025-07-07
 draft: false
 toc: true

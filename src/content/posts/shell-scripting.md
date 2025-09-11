@@ -1,5 +1,5 @@
 ---
-title: "Shell Scripting Basics"
+title: "Shell Scripting"
 published: 2025-07-07
 draft: false
 toc: true
