@@ -74,10 +74,12 @@ if (postData.tags && postData.tags.length > 0) {
         />
       )
     }
-    <div class="md:mx-2">
-      <h1 id={post.id} class="mb-2 text-[2.8rem] text-heading1">
+    <div class="mb-3">
+      <h1 id={post.id} class="mb-2 text-[2.4rem] text-heading1">
         # {postData.title}
       </h1>
+      <div class="border-1 border-accent/30 rounded-xl h-1 w-full"></div>
+
       <!-- <div class="border-l-2 border-accent/80 pl-4 py-2">
         <PostInfo post={post} />
         {
