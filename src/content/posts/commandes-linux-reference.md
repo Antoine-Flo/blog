@@ -1,5 +1,6 @@
 ---
-title: "Les commandes"
+title: "Référence des commandes Linux"
+menuTitle: "Les commandes"
 published: 2025-09-01
 draft: false
 toc: true

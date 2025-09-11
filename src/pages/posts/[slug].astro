@@ -62,7 +62,7 @@ if (postData.tags && postData.tags.length > 0) {
   author={postData.author}
   tags={postData.tags}
 >
-  <article class="max-w-full py-7.5" data-pagefind-body>
+  <article class="max-w-full pt-12 pb-7.5" data-pagefind-body>
     {
       postData.coverImage && (
         <Image
@@ -75,19 +75,19 @@ if (postData.tags && postData.tags.length > 0) {
       )
     }
     <div class="md:mx-2">
-      <h1 id={post.id} class="mb-4 text-[1.75rem] text-heading1 font-semibold">
+      <h1 id={post.id} class="mb-2 text-[2.8rem] text-heading1">
         # {postData.title}
       </h1>
-      <div class="border-l-2 border-accent/80 pl-4 py-2">
+      <!-- <div class="border-l-2 border-accent/80 pl-4 py-2">
         <PostInfo post={post} />
-        <!-- {
+        {
           tags && (
             <div class="mt-4">
               <Tags tags={tags} />
             </div>
           )
-        } -->
-      </div>
+        }
+      </div> -->
     </div>
     <!-- <hr class="border-accent/10 border-2 rounded-xl hidden lg:block" /> -->
     <div class="flex flex-col xl:gap-1 2xl:gap-18 xl:flex-row xl:items-start">
@@ -103,7 +103,7 @@ if (postData.tags && postData.tags.length > 0) {
         href={`/posts/${nextPostInSeries.id}`}
         class="button justify-center -mt-8 mb-8 !whitespace-normal text-center flex gap-2 sm:gap-3 items-center"
       >
-        <span>Next: {nextPostInSeries.data.title}</span>
+        <span>Article suivant : {nextPostInSeries.data.title}</span>
         <ChevronsRight class="size-5 hidden sm:block" />
       </a>
     )
@@ -111,7 +111,7 @@ if (postData.tags && postData.tags.length > 0) {
   {
     showSeries && series ? (
       <section>
-        <DividerText text={`${series.title} Series`} />
+        <DividerText text={`D'autres posts qui pourraient vous intéresser`} />
         {series.entries.map((seriesPost) => (
           <PostPreview post={seriesPost} />
         ))}
@@ -124,13 +124,13 @@ if (postData.tags && postData.tags.length > 0) {
       </section>
     ) : null
   }
-  {
+  <!-- {
     siteConfig.giscus && (
       <section>
         <DividerText text="Comments" />
         <GiscusLoader />
       </section>
     )
-  }
+  } -->
   <ScrollUpButton />
 </Layout>

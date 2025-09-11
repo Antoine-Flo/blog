@@ -1,5 +1,6 @@
 ---
-title: "Les droits"
+title: "Les droits de fichiers Linux"
+menuTitle: "Les droits"
 published: 2025-07-07
 draft: false
 toc: true

@@ -1,5 +1,6 @@
 ---
-title: "Les Essentiels de Python"
+menuTitle: "Python"
+title: "Référence de syntaxe Python"
 published: 2025-09-04
 draft: false
 toc: true
@@ -21,14 +22,11 @@ python3 --version  # Vérifier l'installation
 
 ### macOS
 ```bash
-# Utiliser Homebrew
 brew install python
-
-# Ou télécharger depuis python.org
 ```
 
 ### Windows
-Téléchargez depuis [python.org](https://www.python.org/downloads/) ou utilisez le Windows Store. Assurez-vous de cocher "Ajouter au PATH" pendant l'installation.
+Téléchargez depuis [python.org](https://www.python.org/downloads/). Assurez-vous de cocher "Ajouter au PATH" pendant l'installation.
 
 ```cmd
 python --version  # Vérifier l'installation

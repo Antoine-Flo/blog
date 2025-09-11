@@ -212,7 +212,7 @@ article img {
   h4,
   h5,
   h6 {
-    @apply my-6.5 font-semibold;
+    @apply font-semibold;
 
     a {
       @apply underline-offset-3 text-inherit no-underline;
@@ -232,10 +232,10 @@ article img {
   }
 
   h2 {
-    @apply text-[1.6rem] text-heading2 mt-12;
+    @apply text-[1.7rem] text-heading2 mt-12;
 
     &::before {
-      @apply mr-2 content-['#'];
+      @apply mr-2 content-['##'];
     }
 
     .heading-anchor svg {
@@ -244,11 +244,8 @@ article img {
   }
 
   h3 {
-    @apply text-2xl text-heading3 mt-10;
+    @apply text-[1.3rem] text-heading3 mt-6;
 
-    &::before {
-      @apply mr-2 content-['#'];
-    }
 
     .heading-anchor svg {
       @apply size-5;
@@ -256,11 +253,8 @@ article img {
   }
 
   h4 {
-    @apply text-2xl text-heading4 mt-8;
+    @apply text-[1.2rem] text-heading4 mt-8;
 
-    &::before {
-      @apply mr-2 content-['#'];
-    }
 
     .heading-anchor svg {
       @apply size-5;
@@ -270,9 +264,6 @@ article img {
   h5 {
     @apply text-lg text-heading5;
 
-    &::before {
-      @apply mr-2 content-['#'];
-    }
 
     .heading-anchor svg {
       @apply size-4.5;
@@ -301,7 +292,7 @@ article img {
   blockquote,
   aside,
   .github-card {
-    @apply my-6.5;
+    @apply my-4;
   }
 
   b,
@@ -329,7 +320,7 @@ article img {
   }
 
   figure:not(.expressive-code figure) {
-    @apply block mx-auto rounded-xl py-2;
+    @apply block mx-auto rounded-xl py-1;
 
     figcaption {
       @apply text-center italic;

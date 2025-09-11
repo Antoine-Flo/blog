@@ -16,7 +16,7 @@ Le modèle OSI (Open Systems Interconnection) est un cadre conceptuel utilisé p
 Exemple : Câble Ethernet transportant des signaux électriques, fibre optique, ondes radio Wi-Fi
 
 2. **Couche liaison de données** : Communication appareil à appareil sur le même réseau
-Exemple : Votre ordinateur portable parlant à votre routeur Wi-Fi, adresses MAC, commutateurs
+Exemple : Votre ordinateur portable parlant à votre routeur Wi-Fi, adresses MAC, switches
 
 3. **Couche réseau** : Trouver des chemins à travers différents réseaux
 Exemple : GPS pour les données - routeur, NAT, adressage IP
@@ -36,8 +36,8 @@ Exemple : Votre navigateur web, client email, ou application de messagerie
 
 ## Composants matériels
 
-### Commutateur
-Entre le routeur et les ordinateurs, il y a un commutateur. Il connaît les adresses des appareils sur le réseau local (LAN). Il gère le trafic de données entre eux. Il fonctionne à la couche liaison de données (Couche 2) du modèle OSI.
+### Switch
+Entre le routeur et les ordinateurs, il y a un switch. Il connaît les adresses des appareils sur le réseau local (LAN). Il gère le trafic de données entre eux. Il fonctionne à la couche liaison de données (Couche 2) du modèle OSI.
 
 ### Routeur
 Le routeur connecte le réseau local à internet. Il transfère les paquets de données entre différents réseaux. Il utilise une table de routage pour déterminer le meilleur chemin pour transférer les paquets. Il fonctionne à la couche réseau (Couche 3) du modèle OSI.

@@ -7,7 +7,7 @@ const config: SiteConfig = {
   title: 'DevOps Journey',
   // The description of your site, used for SEO and RSS feed.
   description:
-    'A coder-ready Astro blog theme with 59 of your favorite color schemes to choose from',
+    'Un blog sur le DevOps, le cloud et le dev en général.',
   // The author of the site, used in the footer, SEO, and RSS feed.
   author: 'Antoine Flouzat',
   // Keywords for SEO, used in the meta tags.
