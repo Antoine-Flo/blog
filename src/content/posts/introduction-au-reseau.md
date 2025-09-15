@@ -1,5 +1,5 @@
 ---
-title: "Introduction aux réseaux"
+title: "Introduction au réseau"
 published: 2025-09-04
 draft: false
 toc: true
@@ -10,7 +10,7 @@ tags: ['networking', 'tutorial']
 
 
 ## Modèle OSI
-Le modèle OSI (Open Systems Interconnection) est un cadre conceptuel utilisé pour comprendre et implémenter les protocoles réseau en sept couches. Chaque couche remplit une fonction spécifique et communique avec les couches directement au-dessus et en-dessous d'elle.
+Le modèle OSI (Open Systems Interconnection) est un cadre théorique utilisé pour comprendre les protocoles réseau en sept couches. Chaque couche remplit une fonction spécifique et communique avec les couches directement au-dessus et en-dessous d'elle.
 
 1. **Couche physique** : Les fils et signaux réels
 Exemple : Câble Ethernet transportant des signaux électriques, fibre optique, ondes radio Wi-Fi

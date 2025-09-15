@@ -40,10 +40,10 @@ Les autres font référence à tous les utilisateurs qui ne sont pas le proprié
 
 ```bash
 cut -d: -f1 /etc/passwd  # Lister tous les utilisateurs
-cut -d: -f1 /etc/group  # Lister tous les groupes
+cut -d: -f1 /etc/group   # Lister tous les groupes
 
-id [username]  # Obtenir l'ID utilisateur (uid), l'ID groupe (gid), et les appartenances aux groupes
-groups [username]  # Lister tous les groupes dont l'utilisateur est membre
+id [username]       # Obtenir l'ID utilisateur (uid), l'ID groupe (gid), et les appartenances aux groupes
+groups [username]   # Lister tous les groupes dont l'utilisateur est membre
 ```
 
 ### Créer un utilisateur
@@ -64,14 +64,14 @@ sudo groupadd [groupname]
 # Lors de la création d'un nouvel utilisateur
 sudo useradd -m -G [groupname] [username]  # -m crée le répertoire home
 # Ajouter un utilisateur existant à un groupe
-sudo usermod -aG [groupname] [username] # -a ajouter, garder les groupes précédents
+sudo usermod -aG [groupname] [username]    # -a ajouter, garder les groupes précédents
 ```
 
 ### Supprimer un utilisateur ou un groupe
 
 ```bash
-sudo userdel [username]  # Supprimer un utilisateur
-sudo groupdel [groupname]  # Supprimer un groupe
+sudo userdel [username]     # Supprimer un utilisateur
+sudo groupdel [groupname]   # Supprimer un groupe
 sudo userdel -r [username]  # Supprimer un utilisateur et son répertoire home
 ```
 
@@ -212,9 +212,9 @@ La commande `usermod` est utilisée pour modifier un compte utilisateur. Vous po
 
 ```bash
 sudo usermod -d /new/home/dir alice  # Changer le répertoire home
-sudo usermod -s /bin/zsh alice  # Changer le shell par défaut vers zsh
-sudo usermod -L alice  # Verrouiller le compte utilisateur
-sudo usermod -U alice  # Déverrouiller le compte utilisateur
+sudo usermod -s /bin/zsh alice       # Changer le shell par défaut vers zsh
+sudo usermod -L alice                # Verrouiller le compte utilisateur
+sudo usermod -U alice                # Déverrouiller le compte utilisateur
 ```
 
 ### Vérifier le groupe utilisateur

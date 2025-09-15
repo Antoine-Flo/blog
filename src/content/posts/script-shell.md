@@ -1,70 +1,73 @@
 ---
-title: "Shell Scripting"
+menuTitle: "Script Shell"
+title: "Comment écrire des scripts shell"
 published: 2025-07-07
 draft: false
 toc: true
-description: 'Automate repetitive tasks and streamline your workflow with practical shell scripting examples.'
+description: 'Automatise les tâches répétitives et optimise ton workflow avec des exemples pratiques de scripts shell.'
 series: 'Linux'
 tags: ['bash']
 ---
 
-## Basic setup
+Les scripts shell permettent d'exploiter le shell comme un langage de programmation déjà préinstallé sur la plupart des distributions Linux. Ils vous permettront de créer des automatisations basiques.
 
-1. Create a file
+## Configuration de base
+
+1. Créer un fichier
 
 ```bash
 touch my_script.sh
-nano my_script.sh   # Create and open the file in the nano text editor
+nano my_script.sh   # Créer et ouvrir le fichier dans l'éditeur de texte nano
 ```
 
-2. Add a shebang at the top of the file, then the instructions.
+2. Ajouter un shebang en haut du fichier, puis les instructions.
 
 ```bash
 #!/usr/bin/env bash
 echo "Hello, World!"
 ```
 
-3. Make the file executable
+3. Rendre le fichier exécutable
 
 ```bash
 chmod +x my_script.sh
 ```
 
-4. Execute the script
+4. Exécuter le script
 
 ```bash
 ./my_script.sh
 ```
 
-## Scripting language
+## Langage de script
 
 ### Variables
 
-Variables in bash are denoted with a `$` prefix. For example:
+Les variables en bash sont précédées d'un préfixe `$`. Par exemple :
 
 ```bash
 name="John"
 echo "Hello, $name!"
 ```
 
-### Parameters
+### Paramètres
 
-Parameters can be passed to a bash script at runtime. 
+Les paramètres peuvent être passés à un script bash lors de l'exécution.
 
 ```bash
 ./my_script.sh John
 ```
 
-The value of the parameters can be accessed using the `$1`, `$2`, etc. :
+La valeur des paramètres peut être accédée en utilisant `$1`, `$2`, etc. :
 
 ```bash
 #!/usr/bin/env bash
 echo "Hello, $1!"
 ```
-> Output: Hello, John!
+> Sortie : Hello, John!
 
 
-You can also use the variable `read` to get user input and store it in a variable.
+Tu peux aussi utiliser la commande `read` pour obtenir une saisie utilisateur et la stocker dans une variable.
 
 ```bash
 #!/usr/bin/env bash
@@ -84,15 +87,15 @@ else
 fi
 ```
 
-### Loops
+### Boucles
 
 ```bash
-for i in {1..5}; do ## We can avoid the ; with another line like the next exemple
+for i in {1..5}; do ## On peut éviter le ; avec une nouvelle ligne comme dans l'exemple suivant
   echo "Iteration $i"
 done
 ```
-> Output: Iteration 1
-> Output: Iteration 2
+> Sortie : Iteration 1
+> Sortie : Iteration 2
 > ...
 
 ```bash
@@ -101,9 +104,9 @@ for nom in Alice Bob Charlie
         echo "Bonjour, $nom!"
     done
 ```
-> Output: Bonjour, Alice!
-> Output: Bonjour, Bob!
-> Output: Bonjour, Charlie!
+> Sortie : Bonjour, Alice!
+> Sortie : Bonjour, Bob!
+> Sortie : Bonjour, Charlie!
 
 ```bash
 compteur=1
@@ -113,12 +116,12 @@ while [ $compteur -le 2 ]
     ((compteur++))
     done
 ```
-> Output: Compteur: 1
-> Output: Compteur: 2
+> Sortie : Compteur: 1
+> Sortie : Compteur: 2
 
 ## Exemples
 
-### Check if a a list of input is a file or directory
+### Vérifier si une liste d'entrées est un fichier ou un répertoire
 ```bash
 #!/usr/bin/env bash
 if [[ "$#" -eq 0 ]]; then
@@ -137,7 +140,7 @@ for arg in "$@"; do
 done
 ```
 
-### Change owner of a list of files
+### Changer le propriétaire d'une liste de fichiers
 ```bash
 #!/usr/bin/env bash
 
